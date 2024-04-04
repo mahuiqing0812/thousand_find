@@ -1,0 +1,72 @@
+<!--pages/itList/itList.wxml-->
+<view class="it_softWare_list">
+    <view class="it_leftNavBar">
+        <scroll-view scroll-y style="height: 1120px;" bindscroll="scroll">
+            <view class="leftNav_item {{curTypeData == 0 ? 'letNav_cur' : ''}}" data-current="0" bindtap="checkType">
+                <image src="../../images/icon-quanbu@2x.png" mode="widthFix"></image>
+                <view>全部</view>
+            </view>
+            <view class="leftNav_item {{curTypeData == 1 ? 'letNav_cur' : ''}}" data-current="1" bindtap="checkType">
+                <image src="../../images/icon-dianshang@2x.png" mode="widthFix"></image>
+                <view>电商</view>
+            </view>
+            <view class="leftNav_item {{curTypeData == 2 ? 'letNav_cur' : ''}}" data-current="2" bindtap="checkType">
+                <image src="../../images/icon-qipai@2x.png" mode="widthFix"></image>
+                <view>棋牌</view>
+            </view>
+            <view class="leftNav_item {{curTypeData == 3 ? 'letNav_cur' : ''}}" data-current="3" bindtap="checkType">
+                <image src="../../images/icon-shejiao@2x.png" mode="widthFix"></image>
+                <view>社交</view>
+            </view>
+            <view class="leftNav_item {{curTypeData == 4 ? 'letNav_cur' : ''}}" data-current="4" bindtap="checkType">
+                <image src="../../images/icon-shouyou@2x.png" mode="widthFix"></image>
+                <view>手游</view>
+            </view>
+            <view class="leftNav_item {{curTypeData == 5 ? 'letNav_cur' : ''}}" data-current="5" bindtap="checkType">
+                <image src="../../images/icon-xinwen@2x.png" mode="widthFix"></image>
+                <view>新闻</view>
+            </view>
+            <view class="leftNav_item {{curTypeData == 6 ? 'letNav_cur' : ''}}" data-current="6" bindtap="checkType">
+                <image src="../../images/icon-qita@2x.png" mode="widthFix"></image>
+                <view>其他</view>
+            </view>
+        </scroll-view>
+
+    </view>
+    <view class="it_rightContent">
+        <view class="topBar_terminal">
+            <block wx:for="{{terminalArr}}" wx:key="index">
+                <view class="{{item.isSele ? 'topBar_cur' : ''}}" id="{{item.id}}" data-isSele="{{item.isSele}}"
+                    bindtap="checkTerminal">{{item.name}}</view>
+            </block>
+
+        </view>
+        <view class="it_itemList">
+
+            <view class="arti_list_item" bindtap="skip_goodsDetail" wx:for="{{itemArr}}" wx:key="index"
+                data-goodsid="{{item.Id}}">
+                <view class="arti_item_desc">
+
+                    <view class="arti_item_pic">
+                        <image src="{{item.GoodsImagesList[0].ImageUrl}}"></image>
+                    </view>
+                    <view class="arti_item_detail">
+                        <view class="arti_item_title">{{item.GoodsTitle}}</view>
+                        <view class="arti_item_bewrite">{{item.GoodsDesc}}</view>
+
+                    </view>
+                </view>
+                <view class="arti_item_tags" wx:if="{{item.CateList.length != 0}}">
+                    <view class="arti_itemTags_con">
+                        <view class="arti_itemTags_ico" wx:for="{{item.CateList}}" wx:for-item="items" wx:key="index">
+                            <image src="../../images/icon-biaoqian @2x.png" mode="widthFix"></image>
+                            <text>{{items.CategoryValue}}</text>
+                            <view class="arti_itemTags_shadow"></view>
+                        </view>
+
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

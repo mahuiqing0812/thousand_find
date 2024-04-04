@@ -1,0 +1,213 @@
+/* pages/orderTallyup/orderTallyup.wxss */
+page {
+    padding-bottom: 60rpx;
+}
+
+.order_detail {
+    width: 690rpx;
+    margin: 0 auto;
+    background: #FFFFFF;
+    box-shadow: 0 2rpx 10rpx 2rpx rgba(217, 217, 217, 0.50);
+    border-radius: 8rpx;
+    padding: 30rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.order_picAndTxt {
+    height: 170rpx;
+    border-bottom: 2rpx solid #f2f2f2;
+}
+
+.order_picAndTxt image {
+    width: 140rpx;
+    border-radius: 8rpx;
+}
+
+.order_picAndTxt .order_gamePic {
+    flex-basis: 140rpx;
+
+}
+
+.order_picAndTxt .order_picAndTxtWall {
+    display: flex;
+    width: 670rpx;
+}
+
+.order_picAndTxt .goods_name {
+    font-size: 28rpx;
+    color: #333;
+    line-height: 40rpx;
+}
+
+.order_picAndTxt .payment_detail {
+    font-size: 24rpx;
+}
+
+.order_picAndTxt .order_gameTxt {
+    /* width: 100%; */
+    margin-left: 20rpx;
+    padding-right: 30rpx;
+    padding-bottom: 26rpx;
+}
+
+.order_picAndTxt .order_gameTxt .payment_detail {
+    margin-top: 24rpx;
+    font-size: 24rpx;
+    color: #666;
+}
+
+.order_picAndTxt .order_gameTxt .payment_price {
+    color: #EE3344;
+}
+
+.order_picAndTxt .order_gameTxt .payment_price text {
+    font-size: 32rpx;
+}
+
+
+
+/* 联系方式开始 */
+.contact_way {
+    margin-top: 10rpx;
+
+}
+
+.contact_way .contactWay_title {
+    height: 110rpx;
+    color: #333;
+    line-height: 110rpx;
+    font-size: 36rpx;
+    padding-left: 30rpx;
+}
+
+.contact_way .contactWay_reveal {
+    width: 690rpx;
+    height: 100rpx;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8rpx;
+    box-shadow: 0 2rpx 10rpx 2rpx rgba(217, 217, 217, 0.50);
+    position: relative;
+    padding: 0 190rpx 0 130rpx;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 28rpx;
+    line-height: 100rpx;
+}
+
+.enter_phone {
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.enter_phone input {
+    height: 100rpx;
+}
+
+.contact_way .contactWay_reveal image,
+.contact_way .contactWay_reveal .auto_btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.contact_way .contactWay_reveal image {
+    width: 36rpx;
+    left: 30rpx;
+
+
+}
+
+.contact_way .contactWay_reveal .auto_btn {
+    width: 150rpx;
+    height: 52rpx;
+    padding: 2rpx;
+    background-image: linear-gradient(to right, #FFB43C, #FF504C);
+    text-align: center;
+    right: 30rpx;
+    font-size: 12px;
+    color: #EE3344;
+    border-radius: 52rpx;
+    box-sizing: border-box;
+}
+
+.contact_way .auto_btn .autoBtn_box {
+    width: 100%;
+    height: 100%;
+    line-height: 50rpx;
+    border-radius: 52rpx;
+    background-color: #fff;
+    font-size: 12px;
+    color: #EE3344;
+    padding: 0;
+}
+
+/* 订单备注开始 */
+.remark {
+    margin-bottom: 40rpx;
+}
+
+.remark .remark_enter {
+    width: 690rpx;
+    background-color: #fff;
+    box-shadow: 0 2rpx 10rpx 2rpx rgba(217, 217, 217, 0.50);
+    margin: 0 auto;
+    border-radius: 8rpx;
+}
+
+.remark .remark_enter textarea {
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    height: 140rpx;
+    font-size: 24rpx;
+    color: #333;
+}
+
+.remark .remark_enter .remark_place {
+    font-size: 24rpx;
+    color: #999;
+}
+
+/* 立即购买 */
+.buy {
+    width: 100%;
+    /* position: fixed;
+    bottom: 0;
+    left: 0; */
+    height: 100rpx;
+    background: #FFFFFF;
+    box-shadow: inset 0 2rpx 0 0 rgba(229, 229, 229, 0.50);
+    line-height: 100rpx;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* z-index: 11; */
+}
+
+.buy .buy_addUp {
+    font-size: 28rpx;
+    color: #333;
+    position: relative;
+}
+
+.buy .buy_addUp text {
+    position: absolute;
+    font-size: 36rpx;
+    color: #151515;
+}
+
+.buyBtn {
+    width: 240rpx;
+    height: 68rpx;
+    text-align: center;
+    line-height: 68rpx;
+    margin-top: 18rpx;
+    border-radius: 68rpx;
+    color: #fff;
+    font-size: 32rpx;
+    background-image: linear-gradient(to right, #FFB43C, #FF504C);
+    box-shadow: 0 2px 5px -2px #FF543A;
+}
+
+/* 支付弹窗 */

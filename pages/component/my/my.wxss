@@ -1,0 +1,547 @@
+.component_my_wrapper {
+
+    background-color: #f9f9f9;
+}
+
+.user_msg {
+    height: 240rpx;
+    padding: 60rpx 0 0 60rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 2rpx 8rpx 0 rgba(217, 217, 217, 0.30), inset 0 -2rpx 0 0 #F2F2F2;
+}
+
+.user_msg .user_msg_con {
+    display: flex;
+    position: relative;
+}
+
+.user_msg .user_login {}
+
+.user_msg .user_login .user_info {
+    overflow: hidden;
+}
+
+.user_msg .user_login .nickname {
+    width: 349rpx;
+    font-size: 32rpx;
+    color: #333;
+    margin: 0 40rpx;
+
+}
+
+.user_msg .user_login .nickname text {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-left: 10rpx;
+    box-sizing: border-box;
+}
+
+.user_msg .user_login .nickname .nike_name {
+    font-size: 24rpx;
+    margin-top: 10rpx;
+}
+
+.user_msg .user_login .avatar {
+    border-radius: 50%;
+    width: 120rpx;
+}
+
+.user_msg .user_login .user_bindphoneNumber {
+    font-size: 24rpx;
+    margin-top: 10rpx;
+    overflow: hidden;
+}
+
+.user_msg .user_bindphoneNumber .binding {
+    height: 40rpx;
+    line-height: 40rpx;
+    color: #EE3344;
+    margin-left: 18rpx;
+    text-align: center;
+    border-radius: 40rpx;
+    font-size: 24rpx;
+    background-image: linear-gradient(to right, rgba(255, 180, 60, .2) 0%, rgba(255, 80, 76, .2));
+    box-sizing: border-box;
+    border: none;
+}
+
+.phoneNumber {
+    font-size: 28rpx;
+    color: #999;
+    margin-left: 16rpx;
+}
+
+.user_msg .user_login .phone_ico {
+    width: 28rpx;
+    margin-top: 6rpx;
+}
+
+.user_msg .sign_in {
+    width: 144rpx;
+    height: 52rpx;
+    background-image: linear-gradient(-225deg, #FF504C 0%, #FFB43C 100%);
+    box-shadow: 0 4rpx 8rpx 0 rgba(255, 122, 69, 0.50);
+    font-size: 28rpx;
+    color: #FFFFFF;
+    border-radius: 52rpx 0rpx 0 52rpx;
+    padding: 6rpx 0 0 8rpx;
+    box-sizing: border-box;
+    margin-top: 6rpx;
+    position: absolute;
+    right: 0;
+}
+
+.user_msg .sign_in .signIn_label {
+    overflow: hidden;
+}
+
+.user_msg .sign_in image {
+    width: 40rpx;
+}
+
+.user_msg .sign_in .signIn_labelTxt {
+    margin-left: 6rpx;
+}
+
+.user_msg .sign_in .signIn_sup {
+    margin-top: 20rpx;
+    color: #EE3344;
+    font-size: 20rpx;
+}
+
+/* 申请成为代理商开始 */
+.user_integralLeval {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    background-color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 28rpx;
+    color: #EE3344;
+    box-sizing: border-box;
+}
+
+/* 角色分类开始，买家or卖家 */
+.role {
+    display: flex;
+    height: 100rpx;
+    background-color: #fff;
+    margin-top: 30rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #333;
+}
+
+.role .buy,
+.role .seller {
+    flex: 1;
+    text-align: center;
+    line-height: 100rpx;
+    position: relative;
+    padding-bottom: 4rpx;
+}
+
+.role view text {
+    position: absolute;
+    height: 100rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.role view.current text {
+    border-bottom: 4rpx solid #ee3344;
+    border-radius: 4rpx;
+    z-index: 11;
+}
+
+/* 发布项目按钮 */
+.publish_btn {
+    width: 506rpx;
+    height: 80rpx;
+    background-image: linear-gradient(-225deg, #FF504C 0%, #FFB43C 100%);
+    line-height: 80rpx;
+    border-radius: 8rpx;
+    margin: 30rpx auto 0;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 32rpx;
+}
+
+/* 我的项目开始 */
+.my_item {
+    padding: 0 30rpx;
+    overflow: hidden;
+    margin-top: 12rpx;
+
+}
+
+.my_item_main {
+    display: flex;
+    background-color: #fff;
+    border-radius: 8rpx;
+    box-shadow: 0 2rpx 10rpx 2rpx rgba(217, 217, 217, 0.50);
+    padding: 30rpx 0;
+}
+
+.my_item_main .my_item_main_i {
+    flex: 1;
+    text-align: center;
+}
+
+.my_item_main view image {
+    width: 80rpx;
+}
+
+/* 我的订单开始 */
+.my_order {
+    padding: 0 30rpx;
+    margin-top: 12rpx;
+}
+
+.myOrder_title {
+    overflow: hidden;
+    line-height: 108rpx;
+}
+
+.myOrder_tit {
+    font-size: 36rpx;
+    color: #333;
+}
+
+.myOrder_lookAll {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.my_order .myOrder_detail {
+    display: flex;
+    justify-content: space-between;
+}
+
+.my_order .all_orderKinds,
+.my_order .connection_custService {
+
+    background-color: #fff;
+    border-radius: 8rpx;
+    box-shadow: 0 2rpx 10rpx 2rpx rgba(217, 217, 217, 0.50);
+}
+
+.my_order .all_orderKinds {
+    width: 400rpx;
+    font-size: 24rpx;
+    color: #333333;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.my_order .all_orderKinds image {
+    width: 80rpx;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20rpx;
+}
+
+.my_order .all_orderKinds .all_orderKinds_item {
+    width: 200rpx;
+    height: 150rpx;
+    box-sizing: border-box;
+    position: relative;
+    padding-top: 100rpx;
+    text-align: center;
+}
+
+.my_order .connection_custService {
+    width: 260rpx;
+    position: relative;
+    padding-top: 160rpx;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.my_order .connection_custService image {
+    position: absolute;
+    left: 50%;
+    top: 64rpx;
+    transform: translate(-50%);
+    width: 80rpx;
+}
+
+.my_order .connection_custService view {
+    font-size: 24rpx;
+    color: #333333;
+    line-height: 44rpx;
+}
+
+/* 我的钱包开始 */
+.my_wallet {
+    padding: 0 30rpx;
+    overflow: hidden;
+    margin-top: 12rpx;
+}
+
+.my_wallet .myWallet_detail {
+    background: url("https://extensionsapi1.1863.cn/images_wechat/oneself_center.png") no-repeat;
+}
+
+.my_wallet .myWallet_detail {
+    width: 750rpx;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: -30rpx;
+    height: 252rpx;
+    padding: 64rpx 0 0 72rpx;
+    color: #fff;
+    font-size: 24rpx;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.my_wallet .myWallet_detail .wallet_amountNum {
+    font-size: 48rpx;
+    position: relative;
+    height: 64rpx;
+}
+
+.my_wallet .myWallet_detail .wallet_amountNum text {
+    position: absolute;
+    left: 0;
+}
+
+.my_wallet .myWallet_detail .wallet_amountTxt {
+    margin-top: 10rpx;
+    position: relative;
+    /* top: 10rpx; */
+}
+
+.myWallet_detail .little_eye {
+    width: 40rpx;
+    position: absolute;
+    left: 126rpx;
+    top: -2rpx;
+}
+
+.my_wallet .myWallet_detail .wallet_btns {
+
+    font-size: 28rpx;
+    color: #EE3344;
+}
+
+.my_wallet .myWallet_detail .wallet_btns view {
+    width: 136rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4rpx 10rpx 0 rgba(193, 64, 55, 0.50);
+    border-radius: 56rpx;
+    position: absolute;
+    right: 74rpx;
+    bottom: 64rpx;
+}
+
+.my_wallet .myWallet_detail .wallet_btns .deposit {
+    right: 244rpx;
+
+}
+
+/* 帮助中心和关于我们开始 */
+.help_about {
+    margin-top: 20rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+    /* margin-bottom: 70rpx; */
+}
+
+.wall_help_about {
+    height: 70rpx;
+}
+
+.help_about image {
+    width: 44rpx;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.help_about .helpAbout_ico {
+    left: 40rpx;
+}
+
+.help_about .right_arrow {
+    width: 28rpx;
+    right: 37rpx;
+}
+
+.help_about_i {
+    padding-left: 116rpx;
+
+    line-height: 120rpx;
+    height: 120rpx;
+    position: relative;
+    box-sizing: border-box;
+    border-bottom: 2rpx solid #F2F2F2;
+    font-size: 32rpx;
+    color: #333333;
+}
+
+.help_about view:last-child {
+    border-bottom: none;
+}
+
+
+/* 点击充值按钮的弹框 */
+.modal-mask {
+
+    width: 100%;
+
+    height: 100%;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    background: #000;
+
+    opacity: 0.5;
+
+    overflow: hidden;
+
+    z-index: 9000;
+
+    color: #fff;
+
+}
+
+.modal-dialog {
+
+    width: 540rpx;
+
+    overflow: hidden;
+
+    position: fixed;
+
+    top: 36%;
+
+    left: 0;
+
+    z-index: 9999;
+
+    background: #fff;
+
+    margin: -180rpx 105rpx;
+
+    border-radius: 36rpx;
+
+}
+
+.modal-title {
+
+    padding-top: 50rpx;
+
+    font-size: 36rpx;
+
+    color: #333;
+
+    text-align: center;
+
+}
+
+.modal-content {
+
+    padding: 50rpx 32rpx;
+
+}
+
+.modal-input {
+
+    display: flex;
+
+    background: #fff;
+
+
+    border-radius: 4rpx;
+
+    font-size: 28rpx;
+
+}
+
+.input {
+
+    width: 100%;
+
+    height: 82rpx;
+
+    font-size: 28rpx;
+
+    line-height: 28rpx;
+
+    padding: 0 20rpx;
+
+    box-sizing: border-box;
+
+    color: #333;
+
+}
+
+input-holder {
+
+    color: #666;
+
+    font-size: 28rpx;
+
+}
+
+.modal-footer {
+
+    display: flex;
+
+    flex-direction: row;
+
+    height: 86rpx;
+
+    border-top: 2rpx solid #dedede;
+
+    font-size: 34rpx;
+
+    line-height: 86rpx;
+
+}
+
+.btn-cancel {
+
+    width: 50%;
+
+    color: #666;
+
+    text-align: center;
+
+    border-right: 2rpx solid #dedede;
+
+}
+
+.btn-confirm {
+
+    width: 50%;
+
+    color: #EE3344;
+
+    text-align: center;
+
+}
+
+.autoBtn_box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+}

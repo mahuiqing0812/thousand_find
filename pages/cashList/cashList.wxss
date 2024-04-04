@@ -1,0 +1,67 @@
+/* pages/cashList/cashList.wxss */
+.trade_detail .trade_detail_tit {
+    margin: 20rpx 0 40rpx 0;
+    padding-left: 30rpx;
+    color: #333;
+    font-size: 36rpx;
+}
+
+.trade_detail .trade_detail_list {
+    color: #999;
+    font-size: 24rpx;
+}
+
+.trade_detail .trade_detail_list .trade_list_item {
+    margin-bottom: 20rpx;
+    background-color: #fefefe;
+    border-bottom: 2rpx solid #F2F2F2
+}
+
+.trade_detail .tradeList_item_hd {
+    overflow: hidden;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-bottom: 2rpx solid #F2F2F2;
+}
+
+.trade_detail .tradeList_item_bd {
+    padding: 34rpx 30rpx;
+    box-sizing: border-box;
+}
+
+.trade_detail .tradeList_item_bd .trade_type {
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+}
+
+.trade_detail .tradeList_item_bd .trType3 {
+    color: #63BC00;
+
+}
+
+.trade_detail .tradeList_item_bd .trType2 {
+    color: #EE3344;
+}
+
+
+.trade_detail .tradeList_item_bd .trType4 {
+    color: darkorange;
+}
+
+.trade_detail .tradeList_item_bd .trade_remark {
+    margin-bottom: 20rpx;
+}
+
+.trade_detail .tradeList_item_bd .trade_time {
+    margin-left: 20rpx;
+}
+
+.trade_detail .tradeList_item_bd .trade_status {
+    margin-bottom: 20rpx;
+}
+
+.makeMoneyTime {
+    margin-top: 20rpx;
+}

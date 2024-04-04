@@ -1,0 +1,10 @@
+<!--pages/itemImgList/itemImgList.wxml-->
+<view class="list_cotent">
+    <view class="listItem" data-imgurl="{{item.ImageUrl}}" wx:for="{{shareImgList}}" wx:key="index"
+        bindtap="skip_itemImgDet">
+        <!-- <view class="listItem"> -->
+        <image src="{{item.ImageUrl}}" mode="widthFix"></image>
+        <!-- <image src="https://extensionsapi1.1863.cn/image/game/list/1.jpg" mode="widthFix"></image> -->
+    </view>
+
+</view>

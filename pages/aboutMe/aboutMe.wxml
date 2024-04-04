@@ -1,0 +1,28 @@
+<!--pages/aboutMe/aboutMe.wxml-->
+<view class="summary">
+    <image src="../../images/logo-yuan@2x.png" mode="widthFix" class="logo"></image>
+    <view class="summary_title">北京众千寻网络科技有限公司</view>
+    <view class="summary_detail">
+        <view class="company_summ">
+            <view class="company_summ_title">公司简介</view>
+            <view class="company_summ_detail">
+                北京众千寻网络科技有限公司位于中国的首都，政治、文化中心北京，于2015年03月18日在海淀分局注册成立，在公司发展壮大的4年里，我们始终为客户提供好的产品和技术支持、健全的售后服务，我公司主要经营技术开发、技术咨询、技术转让、技术服务、技术推广；数据处理（数据处理中的银行卡中心、PUE值在1.5以上的云计算数据中心除外）；基础软件服务；应用软件服务；软件开发；软件咨询等业务。
+            </view>
+        </view>
+        <view class="company_summ hathpace_summ">
+            <view class="company_summ_title">平台简介</view>
+            <view class="company_summ_detail">
+                众里寻它，卓而不凡。众千寻平台创立之初便致力打造一个中国领先的人才共享平台和服务交易市场。平台作为客户和开发团队中的桥梁，一直秉承客为尊，客户至上的原则和精神，殚精竭虑，为客户服务，想客户所想，解客户所忧是平台发展的第一要义。公司快速发展需进行业务拓展，有意向的小伙伴可以拨打下面的联系方法和我们洽谈。
+            </view>
+        </view>
+    </view>
+</view>
+<view class="contact_way">
+    <view class="contact_way_title company_summ_title">联系方式</view>
+    <view class="contact_way_detail">
+        <view>洽谈地址：北京市海淀区长春桥路5号新起点嘉园12号楼</view>
+        <view>邮政编码：100089</view>
+        <view>客服热线：010-8287 0787</view>
+        <view>客服微信：zqxkf_1863</view>
+    </view>
+</view>

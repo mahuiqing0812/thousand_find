@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+      "component_car": "/pages/component/my/my",
+      "component_index": "/pages/component/index/index"
+    },
+    "navigationBarTitleText": "首页"
+  }

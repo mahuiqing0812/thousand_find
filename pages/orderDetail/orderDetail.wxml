@@ -1,0 +1,296 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="order_states">
+    <view class="states_is_daizhifu" wx:if="{{orderMsg.Order.OrderStatus == '1'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-daizhifu-orderstates@2x.png" mode="widthFix"></image>
+            <text>订单待支付</text>
+        </view>
+
+        <view class="instalment_msg" wx:if="{{orderMsg.OrderItemList.length != 0}}">
+            <view class="task_item" wx:for="{{orderMsg.OrderItemList}}" wx:key="index">
+                <view
+                    class="times_and_price {{item.currentPay ? 'current_pay' : 'already_pay'}} {{item.notPay ? 'not_pay' : ''}}">
+                    <view class="time_slice">
+                        <text class="curcle">●</text>{{item.StarTime}}-{{item.EndTime}}
+                        <text wx:if="{{item.currentPay}}">本期应付</text>
+                    </view>
+                    <view class="price">{{item.TermPrice}}元（{{item.PricePercentage}}%）</view>
+                    <view class="days">{{item.PhaseDays}}天</view>
+                </view>
+                <view class="instalment_task">
+                    阶段任务：{{item.Description}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="states_is_daifahuo" wx:elif="{{orderMsg.Order.OrderStatus == '2'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-daifahuo-orderstates@2x.png" mode="widthFix"></image>
+            <text>项目开发中</text>
+        </view>
+
+        <view class="instalment_msg" wx:if="{{orderMsg.OrderItemList.length != 0}}">
+            <view class="task_item" wx:for="{{orderMsg.OrderItemList}}" wx:key="index">
+                <view
+                    class="times_and_price {{item.currentPay ? 'current_pay' : 'already_pay'}} {{item.notPay ? 'not_pay' : ''}}">
+                    <view class="time_slice">
+                        <text class="curcle">●</text>{{item.StarTime}}-{{item.EndTime}}
+                        <text wx:if="{{item.currentPay}}">本期应付</text>
+                    </view>
+                    <view class="price">{{item.TermPrice}}元（{{item.PricePercentage}}%）</view>
+                    <view class="days">{{item.PhaseDays}}天</view>
+                </view>
+                <view class="instalment_task">
+                    阶段任务：{{item.Description}}
+                </view>
+                <block wx:if="{{item.PayState == 3}}">
+                    <view class="instalment_task">
+                        第{{item.Term}}期支付时间：{{item.PayTime}}
+                    </view>
+                    <view class="instalment_task">
+                        交易流水号：{{item.PayNo}}
+                    </view>
+                </block>
+            </view>
+        </view>
+
+    </view>
+    <view class="states_is_daizhifu" wx:elif="{{orderMsg.Order.OrderStatus == '3'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-daifahuo-orderstates@2x.png" mode="widthFix"></image>
+            <text>项目待验收</text>
+        </view>
+
+        <view class="instalment_msg" wx:if="{{orderMsg.OrderItemList.length != 0}}">
+            <view class="task_item" wx:for="{{orderMsg.OrderItemList}}" wx:key="index">
+                <view
+                    class="times_and_price {{item.currentPay ? 'current_pay' : 'already_pay'}} {{item.notPay ? 'not_pay' : ''}}">
+                    <view class="time_slice">
+                        <text class="curcle">●</text>{{item.StarTime}}-{{item.EndTime}}
+                        <text wx:if="{{item.currentPay}}">本期应付</text>
+                    </view>
+                    <view class="price">{{item.TermPrice}}元（{{item.PricePercentage}}%）</view>
+                    <view class="days">{{item.PhaseDays}}天</view>
+                </view>
+                <view class="instalment_task">
+                    阶段任务：{{item.Description}}
+                </view>
+                <block wx:if="{{item.PayState == 3}}">
+                    <view class="instalment_task">
+                        第{{item.Term}}期支付时间：{{item.PayTime}}
+                    </view>
+                    <view class="instalment_task">
+                        交易流水号：{{item.PayNo}}
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="states_is_daifahuo states_is_yiwancheng" wx:elif="{{orderMsg.Order.OrderStatus == '4'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-wancheng-orderstates@2x.png" mode="widthFix"></image>
+            <text>订单已完成</text>
+        </view>
+
+        <view class="instalment_msg" wx:if="{{orderMsg.OrderItemList.length != 0}}">
+            <view class="task_item" wx:for="{{orderMsg.OrderItemList}}" wx:key="index">
+                <view
+                    class="times_and_price {{item.currentPay ? 'current_pay' : 'already_pay'}} {{item.notPay ? 'not_pay' : ''}}">
+                    <view class="time_slice">
+                        <text class="curcle">●</text>{{item.StarTime}}-{{item.EndTime}}
+                        <text wx:if="{{item.currentPay}}">本期应付</text>
+                    </view>
+                    <view class="price">{{item.TermPrice}}元（{{item.PricePercentage}}%）</view>
+                    <view class="days">{{item.PhaseDays}}天</view>
+                </view>
+                <view class="instalment_task">
+                    阶段任务：{{item.Description}}
+                </view>
+                <block wx:if="{{item.PayState == 3}}">
+                    <view class="instalment_task">
+                        第{{item.Term}}期支付时间：{{item.PayTime}}
+                    </view>
+                    <view class="instalment_task">
+                        交易流水号：{{item.PayNo}}
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="states_is_daifahuo" wx:elif="{{orderMsg.Order.OrderStatus == '5'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-daifahuo-orderstates@2x.png" mode="widthFix"></image>
+            <text>订单已关闭</text>
+        </view>
+
+        <view class="instalment_msg" wx:if="{{orderMsg.OrderItemList.length != 0}}">
+            <view class="task_item" wx:for="{{orderMsg.OrderItemList}}" wx:key="index">
+                <view
+                    class="times_and_price {{item.currentPay ? 'current_pay' : 'already_pay'}} {{item.notPay ? 'not_pay' : ''}}">
+                    <view class="time_slice">
+                        <text class="curcle">●</text>{{item.StarTime}}-{{item.EndTime}}
+                        <text wx:if="{{item.currentPay}}">本期应付</text>
+                    </view>
+                    <view class="price">{{item.TermPrice}}元（{{item.PricePercentage}}%）</view>
+                    <view class="days">{{item.PhaseDays}}天</view>
+                </view>
+                <view class="instalment_task">
+                    阶段任务：{{item.Description}}
+                </view>
+                <block wx:if="{{item.PayState == 3}}">
+                    <view class="instalment_task">
+                        第{{item.Term}}期支付时间：{{item.PayTime}}
+                    </view>
+                    <view class="instalment_task">
+                        交易流水号：{{item.PayNo}}
+                    </view>
+                </block>
+            </view>
+        </view>
+
+    </view>
+</view>
+<!-- 订单状态结束 -->
+
+
+<!-- 商品信息开始 -->
+<view class="">
+    <view class="contactWay_title font_W">项目信息</view>
+    <view class="order_detail">
+        <view><text>项目名称：</text> <text>{{orderMsg.Project.ProjectName}}</text></view>
+        <view><text>描述：</text> {{orderMsg.Project.ProjectDescription}}</view>
+        <view><text>项目类型：</text> <text>{{orderMsg.Project.FunctionSortName}}</text></view>
+        <view><text>支持终端：</text> <text>{{orderMsg.Project.SupportName}} </text></view>
+        <view><text>缴纳押金：</text> <text>{{orderMsg.Project.DepositMoney}}</text></view>
+        <view><text>项目价格：</text> <text>{{orderMsg.Project.Price}}</text></view>
+
+    </view>
+</view>
+
+<!-- 联系方式 -->
+<view class="contact_way">
+    <view class="contactWay_title font_W">联系方式</view>
+    <view class="contactWay_reveal">
+        <image src="../../images/icon-shouji-18x18@2x.png" mode="widthFix"></image>
+        <view class="enter_phone">{{orderMsg.Order.Phone}}</view>
+
+    </view>
+</view>
+
+
+<!-- 订单备注开始 -->
+<view class="contact_way remark" wx:if="{{orderMsg.remark}}">
+    <view class="contactWay_title font_W">订单备注</view>
+    <view class="remark_enter">
+        {{orderMsg.remark}}
+    </view>
+</view>
+<!-- 订单信息开始 -->
+<view class="contact_way order_msg">
+    <view class="contactWay_title font_W">订单信息</view>
+    <view class="order_msg_det">
+        <view>订单编号：<text>{{orderMsg.Order.OrderNo}}</text></view>
+        <view>创建时间：<text>{{orderMsg.Order.CreateTime}}</text></view>
+        <block wx:for="{{orderMsg.OrderItemList}}" wx:key="{{index}}">
+            <view wx:if="{{item.PayTime}}">
+                <view>第{{item.Term}}期支付流水号：<text>{{item.PayNo}}</text></view>
+                <view>第{{item.Term}}期支付时间：<text>{{item.PayTime}}</text></view>
+            </view>
+        </block>
+        <view wx:if="{{orderMsg.Order.OrderStatus == '3' || orderMsg.Order.OrderStatus == '4'}}">
+            提交验收时间：<text>{{orderMsg.Order.DeliverTime}}</text>
+        </view>
+
+        <view wx:if="{{orderMsg.Order.OrderStatus == '4'}}">完成时间：<text>{{orderMsg.Order.AcceptanceTime}}</text></view>
+    </view>
+</view>
+
+
+<!-- 底部按钮 -->
+<view class="footerBar">
+
+    <!-- 订单待支付 -->
+    <view class="operate_btns" wx:if="{{orderMsg.Order.OrderStatus == '1'}}">
+        <view class="cancel_btn">
+            <view class="cancel_btnBox" bindtap="cancelOrder">取消订单</view>
+        </view>
+        <view class="order_btn" bindtap="awayPay">立即支付</view>
+    </view>
+    <!-- 项目开发中 -->
+    <view class="operate_btns singleBtn" wx:elif="{{orderMsg.Order.OrderStatus == '2'}}">
+        <view class="cancel_btn lianxikefu" wx:if="{{finishpaystate}}">
+            <view class="cancel_btnBox"><button open-type="contact">联系客服</button></view>
+        </view>
+        <bolck wx:else>
+            <view class="cancel_btn">
+                <view class="cancel_btnBox"><button open-type="contact">联系客服</button></view>
+            </view>
+            <view class="order_btn" bindtap="awayPay">立即支付</view>
+        </bolck>
+    </view>
+    <view class="operate_btns" wx:elif="{{orderMsg.Order.OrderStatus == '3'}}">
+        <view class="cancel_btn">
+            <view class="cancel_btnBox"><button open-type="contact">联系客服</button></view>
+        </view>
+        <view class="order_btn" bindtap="verifyReceiveGood">确认验收</view>
+    </view>
+
+    <view class="operate_btns singleBtn"
+        wx:elif="{{orderMsg.Order.OrderStatus == '4'}} || {{orderMsg.Order.OrderStatus == '5'}}">
+        <view class="cancel_btn lianxikefu">
+            <view class="cancel_btnBox"><button open-type="contact">联系客服</button></view>
+        </view>
+    </view>
+
+</view>
+<!-- 弹出层 -->
+<view class="mask" wx:if="{{cancelOrderShow}}" catchtouchmove="return"></view>
+<view class="mask" wx:if="{{payWinIsShow}}" catchtouchmove="return"></view>
+
+<!-- 取消订单弹出层 -->
+<view class="cancelOrder_reason" wx:if="{{cancelOrderShow}}" catchtouchmove="return">
+    <view class="cancelOrder_tit">取消订单</view>
+    <view class="select_reason">请选择取消订单原因</view>
+
+    <radio-group>
+        <label class="radio reasons_item" wx:for="{{cancelReasonArr}}" wx:key="index">
+            <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.name}}
+        </label>
+    </radio-group>
+    <view class="operate_btns cancel_btns">
+        <view class="cancel_btn">
+            <view class="cancel_btnBox" bindtap="cancelOrderNo">暂不取消</view>
+        </view>
+        <view class="order_btn" bindtap="cancelOrderDefin">确定取消</view>
+    </view>
+</view>
+
+<!-- 支付按钮弹出层 -->
+<view class="pay_confirm" wx:if="{{payWinIsShow}}">
+    <view class="pay_confirm_main">
+        <view class="pay_confirm_mainhd">
+            <view class="pay_title">众千寻</view>
+            <view class="pay_num"><text class="pay_ico">￥</text>{{payMoney}}</view>
+        </view>
+        <view class="pay_confirm_mainbd">
+            <view class="sele_payway">选择支付方式</view>
+            <radio-group bindchange="radioChange">
+                <label class="radio reasons_item">
+                    <image src="../../images/icon-weixinzhifu@2x.png" mode="widthFix"></image>
+                    <radio checked value="wx" />微信支付
+                </label>
+                <label class="{{walletMsg.IsPay ? '' : 'balance'}}">
+                    <image wx:if="{{walletMsg.IsPay}}" src="../../images/icon-jinbi@2x.png" mode="widthFix"></image>
+                    <image wx:else src="../../images/icon-jinbi-hui@2x.png" mode="widthFix"></image>
+                    <radio value="wallet" disabled="{{!walletMsg.IsPay}}" />钱包余额
+                    <text class="balance">（剩余：{{walletMsg.AvailableBalance}}元）</text>
+                    <text wx:if="{{!walletMsg.IsPay}}" class="notEnoughMoney">金额不足</text>
+                </label>
+            </radio-group>
+        </view>
+        <view class="confirmPay font_W" bindtap="confirmPay">确认支付</view>
+    </view>
+    <view class="pay_confirm_btn" bindtap="closePayConfirm">
+        <image src="../../images/icon-guanbi@2x.png" mode="widthFix"></image>
+    </view>
+</view>

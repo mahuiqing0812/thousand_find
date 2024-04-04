@@ -1,0 +1,131 @@
+<view>
+  <view class="header-tip {{isTip?'header-tip-show':''}}">{{tipInfo}}</view>
+  <view class="{{isTip?'header-tip-bottom':''}}">
+    <!--基本信息  -->
+    <view class="item-title">基本信息（必填）</view>
+    <view class="item-detail">
+      <!--使用面积  -->
+      <view class="item-info">
+        <view class="item-info-left">项目名称</view>
+        <view>
+          <input class="item-info-input" maxlength='20' name='prjName' minlength="4" type="text"
+            bindinput="prjNameHandle" placeholder="请输入项目名称4-20字"></input>
+        </view>
+      </view>
+      <!--项目类型  -->
+      <view class="item-info">
+        <view class="item-info-left">项目类型</view>
+        <view>
+          <picker bindchange="bindPickerChange" name="itemType" value="form.itemType" range="{{array}}">
+            <block wx:if="{{isPicker}}">
+              <view class="picker" style="color:#808080">请选择项目类型</view>
+            </block>
+            <block wx:else>
+              <view class="picker">
+                {{array[typeindex]}}
+              </view>
+            </block>
+          </picker>
+        </view>
+      </view>
+      <!--选择终端  -->
+      <view class="item-info">
+        <view class="item-info-left">支持终端</view>
+        <view>
+          <checkbox-group bindchange="checkboxChange" name="itemTerminal">
+            <label class="checkbox" wx:for="{{items}}" wx:key="this">
+              <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+              {{item.value}}
+            </label>
+          </checkbox-group>
+        </view>
+
+      </view>
+      <!--项目价格  -->
+      <view class="item-info">
+        <view class="item-info-left">项目价格</view>
+        <view>
+          <input class="item-info-input" maxlength='8' type="number" bindinput="priceHandle"
+            placeholder='请输入项目价格'></input>
+        </view>
+        <view class="item-info-right">元</view>
+      </view>
+      <!--待缴押金  -->
+      <view class="item-info">
+        <view class="item-info-left">待缴押金</view>
+        <view>
+          <input class="item-info-input" maxlength='10' type="digit" value="{{itemPrice_p}}" disabled="true"
+            placeholder='输入项目价格后自动计算'></input>
+        </view>
+        <view class="item-info-right">元</view>
+      </view>
+      <!--项目分期  -->
+      <view class="item-info" style=" border: 0;">
+        <view class="item-info-left">项目分期</view>
+        <view>
+          <picker bindchange="bindPickerStageChange" class="picker-select item-info-input" name="itemTask"
+            value="form.itemTask" range="{{phasetask}}">
+            <block wx:if="{{isPickerfen}}">
+              <view class="picker" style="color:#808080">请选择项目分期(默认1期)</view>
+            </block>
+            <block wx:else>
+              <view class="picker">
+                {{phasetask[taskIndex]}}
+              </view>
+            </block>
+
+          </picker>
+        </view>
+        <view class="item-info-right">期</view>
+      </view>
+
+    </view>
+
+    <!--分期信息  -->
+    <block wx:for="{{phasetask[taskIndex]}}" wx:key="this">
+      <view class="item-title">请填写第{{item + 1}}期分期信息</view>
+      <view class="item-detail">
+        <view class="item-info">
+          <view class="item-info-left">支付比例</view>
+          <view>
+            <input class="item-info-input" type="digit" bindinput="taskratioHandle" placeholder="0"
+              data-itemindex="{{item }}"></input>
+          </view>
+          <view class="item-info-right">%</view>
+        </view>
+        <view class="item-info">
+          <view class="item-info-left">消耗时长</view>
+          <view>
+            <input class="item-info-input" type="number" data-itemindex="{{item}}" bindinput="taskDateHandle"
+              placeholder="0"></input>
+          </view>
+          <view class="item-info-right">天</view>
+        </view>
+        <!--阶段任务  -->
+        <view class="item-info-adress">
+          <view class="item-info-left-label">阶段任务</view>
+          <textarea class="item-info-text" maxlength='200' data-itemindex="{{item }}" bindinput="taskdescHandle"
+            placeholder='请输入阶段任务描述（最多可输入200个字符）'></textarea>
+        </view>
+      </view>
+    </block>
+    <!-- 联系方式 -->
+    <view class="item-title">发布说明（选填）</view>
+    <view class="item-detail">
+      <view class="item-info-adress">
+        <textarea maxlength='200' bindinput="itemdescHandle" placeholder='请输入发布说明（最多可输入200个字符）'></textarea>
+      </view>
+    </view>
+    <!-- <view class="item-detail">
+      <view class="item-info-adress">
+        <input type="text" bindinput="itemdescHandle" placeholder='请输入发布说明（最多可输入200个字符）' />
+      </view>
+    </view> -->
+    <view class="publish_view">
+      <!-- <view class="cancel_btn">
+            <view class="cancel_btnBox" bindtap="cancelOrderNo">取消</view>
+        </view> -->
+      <view class="publish_btn " bindtap='saveItem'>提交审核</view>
+    </view>
+  </view>
+</view>

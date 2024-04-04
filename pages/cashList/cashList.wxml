@@ -1,0 +1,40 @@
+<!--pages/cashList/cashList.wxml-->
+<view class="trade_detail">
+    <view class="trade_detail_tit">交易明细</view>
+    <view class="trade_detail_list">
+        <view class="trade_list_item" wx:for="{{tradeListArr}}" wx:key="index">
+            <view class="tradeList_item_hd">
+                <view class="fl">流水号：{{item.OrderNo}}</view>
+                <view class="fr" bindtap="checkDetail_cashOut" data-auditremark="{{item.AuditRemark}}"
+                    data-auditstatus="{{item.AuditStatus}}" data-createtime="{{item.CreateTime}}">查看详情 ></view>
+            </view>
+            <view class="tradeList_item_bd">
+                <view class="trade_type trType4">提现 {{item.CashAmount}}元</view>
+                <view class="trade_remark">{{item.TradeRemark}}</view>
+
+                <view class="trade_type trType1">
+                    <view class="trade_status" wx:if="{{item.AuditStatus == 1}}">审核状态：
+                        <text class='trade_status1'>待审核</text>
+                    </view>
+                    <view class="trade_status" wx:elif="{{item.AuditStatus == 2}}">审核状态：
+                        <text class='trade_status2'>审核完成</text>
+                    </view>
+
+                    <view class="trade_status" wx:elif="{{item.AuditStatus == 3}}">审核状态：
+                        <text class='trade_status3'>审核失败</text>
+                    </view>
+                </view>
+                <view class="trade_type trType1">
+                    <view class="trade_status">打款状态：
+                        <text class='trade_status1' wx:if="{{item.MakeMoneyStatus == 1}}">未打款</text>
+                        <text class='trade_status1' wx:else>已打款</text>
+                    </view>
+                </view>
+                <view class="trade_date">创建时间：{{item.CreateTime}}</view>
+                <view class="trade_date makeMoneyTime" wx:if="{{item.MakeMoneyStatus == 2}}">打款时间：{{item.MakeMoneyTime}}
+                </view>
+            </view>
+        </view>
+
+    </view>
+</view>

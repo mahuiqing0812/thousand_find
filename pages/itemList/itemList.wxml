@@ -1,0 +1,278 @@
+<!--pages/case/case.wxml-->
+<view class='topTabSwiper'>
+  <view class='tab  {{currentData == -1 ? "tabBorer" : ""}}' data-current="-1" bindtap='checkCurrent'>全部</view>
+  <view class='tab_left'></view>
+  <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}' data-current="2" bindtap='checkCurrent'>已关闭</view>
+  <view class='tab_left'></view>
+  <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>审核中</view>
+  <view class='tab_left'></view>
+  <view class='tab  {{currentData == 3 ? "tabBorer" : ""}}' data-current="3" bindtap='checkCurrent'>出售中</view>
+  <view class='tab_left'></view>
+  <view class='tab  {{currentData == 4 ? "tabBorer" : ""}}' data-current="4" bindtap='checkCurrent'>已出售</view>
+</view>
+<swiper class='swiper' style="height:{{windowH}}px" duration="300" bindchange="bindchange">
+  <swiper-item catchtouchmove="stopTouchMove">
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <view class='swiper_con'>
+        <block wx:if="{{orderListArr.length != 0}}">
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="goProjectDetail" data-projectcode="{{item.ProjectCode}}" class="item">
+              <view class='swiper_case'>
+                <!-- <image src="{{item.GoodsImg}}"></image> -->
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="orderTitle font_W">{{item.ProjectName}}</text>
+                    <text wx:if="{{item.Status == 6}}" class="tags">已关闭</text>
+                    <text wx:elif="{{item.Status == 1}}" class="tags">审核中</text>
+                    <text wx:elif="{{item.Status == 3}}" class="tags">出售中</text>
+                    <text wx:elif="{{item.Status == 4}}" class="tags">已出售</text>
+                    <text wx:elif="{{item.Status == 5}}" class="tags">已下架</text>
+                    <text wx:elif="{{item.Status == 2}}" class="tags shsb">审核失败</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.ProjectDesc}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>¥ <text>{{item.Price}}</text> </view>
+                <view class='caseBottom_left'>
+
+                  <view class="btns">
+                    <view class="auto_btn" catchtap="itemUnder" wx:if="{{item.Status == 3}}"
+                      data-projectcode="{{item.ProjectCode}}">
+                      <button class="autoBtn_box">项目下架</button>
+                    </view>
+                    <view class="auto_btn" catchtap="conCustom" wx:else>
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+
+
+                  </view>
+
+
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="noOrder">
+            <view class="noOrder_imgB">
+              <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+            </view>
+            <text class="text1">您还没有项目</text>
+            <text class="text2">赶快联系客服发掘您的商机吧</text>
+            <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+          </view>
+        </block>
+
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item catchtouchmove="stopTouchMove">
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <block wx:if="{{orderListArr.length != 0}}">
+        <view class='swiper_con'>
+
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="goOrderDetail" data-orstate="1" data-orderno="{{item.OrderNo}}">
+              <view class='swiper_case'>
+                <image src="{{item.GoodsImg}}"></image>
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="orderTitle font_W">{{item.GoodsName}}</text>
+                    <text class="tags">待支付</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.GoodsDescription}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>合计：¥ <text>{{item.PayMoney}}</text> </view>
+                <view class='caseBottom_left'>
+                  <view class="btns">
+                    <view class="auto_btn btnsL">
+                      <view class="autoBtn_box" catchtap="goPay" data-paymoney="{{item.PayMoney}}"
+                        data-orderno="{{item.OrderNo}}">去支付</view>
+                    </view>
+                    <view class="auto_btn" catchtap="cancelOrder" data-orderno="{{item.OrderNo}}">
+                      <view class="autoBtn_box">取消订单</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noOrder">
+          <view class="noOrder_imgB">
+
+            <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+          </view>
+          <text class="text1">您还没有项目</text>
+          <text class="text2">赶快联系客服发掘您的商机吧</text>
+          <!-- <view class="auto_btn" catchtap="conCustom"> -->
+          <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+          <!-- </view> -->
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item catchtouchmove="stopTouchMove">
+
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <block wx:if="{{orderListArr.length != 0}}">
+        <view class='swiper_con'>
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="goOrderDetail" data-orstate="2" data-orderno="{{item.OrderNo}}">
+              <view class='swiper_case'>
+                <image src="{{item.GoodsImg}}"></image>
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="orderTitle font_W">{{item.GoodsName}}</text>
+                    <text class="tags">开发中</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.GoodsDescription}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>合计：¥ <text>{{item.PayMoney}}</text> </view>
+                <view class='caseBottom_left'>
+                  <view class="btns">
+                    <view class="auto_btn" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noOrder">
+          <view class="noOrder_imgB">
+
+            <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+          </view>
+          <text class="text1">您还没有项目</text>
+          <text class="text2">赶快联系客服发掘您的商机吧</text>
+          <!-- <view class="auto_btn" catchtap="conCustom"> -->
+          <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+          <!-- </view> -->
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item catchtouchmove="stopTouchMove">
+
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <block wx:if="{{orderListArr.length != 0}}">
+        <view class='swiper_con'>
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="goOrderDetail" data-orstate="3" data-orderno="{{item.OrderNo}}">
+              <view class='swiper_case'>
+                <image src="{{item.GoodsImg}}"></image>
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="orderTitle font_W">{{item.GoodsName}}</text>
+                    <text class="tags">待验收</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.GoodsDescription}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>合计：¥ <text>{{item.PayMoney}}</text> </view>
+                <view class='caseBottom_left'>
+                  <view class="btns">
+
+                    <view class="auto_btn btnsL" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+                    <view class="auto_btn" catchtap="verifyReceiveGood" data-orderno="{{item.OrderNo}}">
+                      <view class="autoBtn_box">确认收货</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noOrder">
+          <view class="noOrder_imgB">
+
+            <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+          </view>
+          <text class="text1">您还没有项目</text>
+          <text class="text2">赶快联系客服发掘您的商机吧</text>
+          <!-- <view class="auto_btn" catchtap="conCustom"> -->
+          <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+          <!-- </view> -->
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item catchtouchmove="stopTouchMove">
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <block wx:if="{{orderListArr.length != 0}}">
+        <view class='swiper_con'>
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="goOrderDetail" data-orstate="4" data-orderno="{{item.OrderNo}}">
+              <view class='swiper_case'>
+                <image src="{{item.GoodsImg}}"></image>
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="font_W orderTitle">{{item.GoodsName}}</text>
+                    <text class="tags">已完成</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.GoodsDescription}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>合计：¥ <text>{{item.PayMoney}}</text> </view>
+                <view class='caseBottom_left'>
+                  <view class="btns">
+                    <view class="auto_btn" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noOrder">
+          <view class="noOrder_imgB">
+
+            <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+          </view>
+          <text class="text1">您还没有项目</text>
+          <text class="text2">赶快联系客服发掘您的商机吧</text>
+          <!-- <view class="auto_btn" catchtap="conCustom"> -->
+          <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+          <!-- </view> -->
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+
+
+<!-- 项目下架弹出层 -->
+<view class="mask" wx:if="{{itemUnderShow}}" catchtouchmove="return"></view>
+<view class="item_under" catchtouchmove="return" wx:if="{{itemUnderShow}}">
+  <view class="item_under_desc">下架描述</view>
+  <view class="remark_enter">
+    <textarea name="" id="" cols="10" rows="2" bindinput="itemUnderReason" placeholder="请输入下架原因"
+      placeholder-class="remark_place"></textarea>
+  </view>
+  <view class="confirmPay font_W" bindtap="confirmUnder">确认下架</view>
+</view>

@@ -1,0 +1,131 @@
+<!--pages/itemDetSeller/itemDetSeller.wxml-->
+
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="order_states">
+    <view class="states_is_daizhifu" wx:if="{{itemMsg.Order.OrderStatus == '1'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-daizhifu-orderstates@2x.png" mode="widthFix"></image>
+            <text>订单未支付</text>
+        </view>
+        <view class="instalment_msg" wx:if="{{itemMsg.OrderItemList.length != 0}}">
+            <view class="task_item" wx:for="{{itemMsg.OrderItemList}}" wx:key="index">
+                <view class="times_and_price">
+                    <view class="time_slice"><text class="curcle">●</text>{{item.StarTime}} -- {{item.EndTime}}</view>
+                    <view class="price">{{item.TermPrice}}元（{{item.PricePercentage}}%）</view>
+                    <view class="days">{{item.PhaseDays}}天</view>
+                </view>
+                <view class="instalment_task">
+                    阶段任务：{{item.Description}}
+                </view>
+            </view>
+        </view>
+        <!-- <view class="remain_time">请耐心等待审核</view> -->
+    </view>
+    <view class="states_is_daifahuo" wx:elif="{{itemMsg.Order.OrderStatus == '2'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-daifahuo-orderstates@2x.png" mode="widthFix"></image>
+            <text>项目开发中</text>
+        </view>
+        <view class="instalment_msg" wx:if="{{itemMsg.OrderItemList.length != 0}}">
+            <view class="task_item" wx:for="{{itemMsg.OrderItemList}}" wx:key="index">
+                <view class="times_and_price">
+                    <view class="time_slice"><text class="curcle">●</text>{{item.StarTime}} -- {{item.EndTime}}</view>
+                    <view class="price">{{item.TermPrice}}元（{{item.PricePercentage}}%）</view>
+                    <view class="days">{{item.PhaseDays}}天</view>
+                </view>
+                <view class="instalment_task">
+                    阶段任务：{{item.Description}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="states_is_daizhifu" wx:elif="{{itemMsg.Order.OrderStatus == '3'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-daifahuo-orderstates@2x.png" mode="widthFix"></image>
+            <text>项目待验收</text>
+        </view>
+        <view class="instalment_msg" wx:if="{{itemMsg.OrderItemList.length != 0}}">
+            <view class="task_item" wx:for="{{itemMsg.OrderItemList}}" wx:key="index">
+                <view class="times_and_price">
+                    <view class="time_slice"><text class="curcle">●</text>{{item.StarTime}} -- {{item.EndTime}}</view>
+                    <view class="price">{{item.TermPrice}}元（{{item.PricePercentage}}%）</view>
+                    <view class="days">{{item.PhaseDays}}天</view>
+                </view>
+                <view class="instalment_task">
+                    {{item.Description}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="states_is_daifahuo states_is_yiwancheng" wx:elif="{{itemMsg.Order.OrderStatus == '4'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-wancheng-orderstates@2x.png" mode="widthFix"></image>
+            <text>项目已完成</text>
+        </view>
+        <view class="instalment_msg" wx:if="{{itemMsg.OrderItemList.length != 0}}">
+            <view class="task_item" wx:for="{{itemMsg.OrderItemList}}" wx:key="index">
+                <view class="times_and_price">
+                    <view class="time_slice"><text class="curcle">●</text>{{item.StarTime}} -- {{item.EndTime}}</view>
+                    <view class="price">{{item.TermPrice}}元（{{item.PricePercentage}}%）</view>
+                    <view class="days">{{item.PhaseDays}}天</view>
+                </view>
+                <view class="instalment_task">
+                    {{item.Description}}
+                </view>
+            </view>
+        </view>
+    </view>
+
+</view>
+<!-- 订单状态结束 -->
+<!-- 商品信息开始 -->
+<view class="">
+    <view class="contactWay_title font_W">项目信息</view>
+    <view class="order_detail">
+        <view><text>项目名称：</text> <text>{{itemMsg.Project.ProjectName}}</text></view>
+        <view><text>描述：</text> {{itemMsg.Project.ProjectDescription}}</view>
+        <view><text>项目类型：</text> <text>{{itemMsg.Project.FunctionSortName}}</text></view>
+        <view><text>支持终端：</text> <text>{{itemMsg.Project.SupportName}} </text></view>
+        <view><text>缴纳押金：</text> <text>{{itemMsg.Project.DepositMoney}}</text></view>
+        <view><text>项目价格：</text> <text>{{itemMsg.Project.Price}}</text></view>
+
+    </view>
+</view>
+
+
+<!-- 订单备注开始 -->
+<view class="contact_way remark" wx:if="{{itemMsg.Order.Remark}}">
+    <view class="contactWay_title">订单备注</view>
+    <view class="remark_enter">
+        {{orderMsg.remark}}
+    </view>
+</view>
+<!-- 订单信息开始 -->
+<view class="contact_way order_msg">
+    <view class="contactWay_title">订单信息</view>
+    <view class="order_msg_det">
+        <view>订单编号：<text>{{itemMsg.Order.OrderNo}}</text></view>
+        <view>创建时间：<text>{{itemMsg.Order.CreateTime}}</text></view>
+        <view wx:if="{{itemMsg.Order.OrderStatus == '3' || itemMsg.Order.OrderStatus == '4'}}">
+            提交验收时间：<text>{{itemMsg.Order.DeliverTime}}</text>
+        </view>
+        <view wx:if="{{itemMsg.Order.OrderStatus == '4'}}">完成时间：<text>{{itemMsg.Order.DeliverTime}}</text></view>
+    </view>
+</view>
+
+<view class="footerBar">
+    <view class="operate_btns" wx:if="{{itemMsg.Order.OrderStatus == '2'}}">
+        <view class="cancel_btn">
+            <view class="cancel_btnBox"><button open-type="contact">联系客服</button></view>
+        </view>
+        <view class="order_btn" bindtap="submityanshou">提交验收</view>
+    </view>
+
+
+    <view class="operate_btns singleBtn" wx:else>
+        <view class="cancel_btn">
+            <view class="cancel_btnBox"><button open-type="contact">联系客服</button></view>
+        </view>
+    </view>
+
+</view>

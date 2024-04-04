@@ -1,0 +1,67 @@
+.btns {
+    width: 140rpx;
+    height: 60rpx;
+    position: static;
+    border: none;
+}
+
+.caseBottom_left {
+    margin-top: 30rpx;
+}
+
+.swiper_one {
+    height: 320rpx;
+}
+
+.swiper_case {
+    height: 180rpx;
+}
+
+.caseBottom_right text {
+    font-size: 24rpx;
+}
+
+.caseBottom_right view {
+    text-align: left;
+    color: #666;
+    width: 350rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+
+
+}
+
+.caseBottom_right view.benqi {
+    color: #ee3344;
+}
+
+.caseBottom .caseBottom_left .auto_btn {
+    width: 140rpx;
+    height: 54rpx;
+    padding: 2rpx;
+
+}
+
+.swiper_case {
+    position: relative;
+}
+
+.swiper_right_top text.tags {
+    position: absolute;
+    right: 0;
+}
+
+.swiper_right {
+    margin: 30rpx 0 0 0rpx;
+
+}
+
+.cancel_btns {
+    margin-top: 40rpx;
+}
+
+.cancelOrder_reason {
+    padding-bottom: 40rpx;
+}

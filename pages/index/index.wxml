@@ -1,0 +1,29 @@
+<!-- 组件显示 -->
+<!-- <view hidden="{{currentTab == 0? false: true}}"> -->
+<view wx:if="{{currentTab == 0}}">
+  <component_index />
+</view>
+<view wx:if="{{currentTab == 1}}">
+  <component_car />
+</view>
+
+<view wx:if="{{currentTab == 2}}">
+  <component_my />
+</view>
+
+<!-- 自定义 tabbar -->
+
+<view class="nav-tabs" style="padding-bottom:{{btuBottom}}">
+  <view class="tab-list {{currentTab == idx ? 'active' : 'default' }}" wx:for="{{items}}" wx:key="prototype"
+    wx:for-index="idx" wx:for-item="item" data-current="{{idx}}" bindtap="swichNav">
+    <text class="tab-text" wx:for-index="idx" data-current="{{idx}}"
+      src="{{currentTab == idx ? item.selectedIconPath : item.iconPath }}">{{item.text}}</text>
+    <image class="iconPath" wx:for-index="idx" data-current="{{idx}}"
+      src="{{currentTab == idx ? item.selectedIconPath : item.iconPath }}"></image>
+  </view>
+</view>
+
+
+<button open-type="contact" class="kefu" style="padding-bottom:{{btuBottom}}">
+
+</button>

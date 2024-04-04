@@ -1,0 +1,15 @@
+<view class="qual_exam_con">
+    <view class="arti_list">
+        <view class="arti_list_item" wx:for="{{itemlist}}" wx:key="index" bindtap="skip_Tallup" data-goodsid="{{item.ProjectCode}}">
+            <view class="arti_item_desc">                
+                <view class="arti_item_detail">
+                        <view class="arti_item_no">{{item.ProjectCode}}</view>
+                    <view class="arti_item_title">{{item.ProjectName}}</view>
+                    <view class="arti_item_bewrite">{{item.ProjectDesc}}</view>
+                    <view class="arti_item_price">￥ <text class="price_num">{{item.Price}}</text></view>
+                </view>
+            </view>
+            
+        </view>
+    </view>
+</view>

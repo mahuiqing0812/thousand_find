@@ -1,0 +1,39 @@
+<!--pages/cashoutResult/cashoutResult.wxml-->
+<view class="cash_out">
+    <view>
+        <image wx:if="{{auditStatus != 3}}" src="../../images/icon-tixianchenggong@2x.png" mode="widthFix" class="txcg">
+        </image>
+        <image wx:else src="../../images/icon-tixianshibai@2x.png" mode="widthFix" class="txcg"></image>
+    </view>
+    <view>
+        <view class="auditing font_W" wx:if="{{auditStatus == 1}}">提现申请待审核</view>
+
+        <view class="auditing font_W" wx:elif="{{auditStatus == 2}}">提现申请已通过</view>
+        <view class="auditing font_W" wx:elif="{{auditStatus == 3}}">提现申请被驳回</view>
+
+    </view>
+    <view>
+        <view class="account_time" wx:if="{{auditStatus == 2}}">预计到账时间：{{times}}</view>
+        <view class="audit_fail" wx:if="{{auditStatus == 3}}">
+            {{auditremark}}
+        </view>
+    </view>
+    <view class="line"></view>
+    <view class="cashOut_flow">
+        <image src="../../images/apply-cash-out@2x.png" mode="widthFix"></image>
+        <image src="../../images/cashOut-line.png" mode="widthFix" class="cashOut_flow_line"></image>
+        <image src="../../images/auditing@2x.png" mode="widthFix"></image>
+
+        <image wx:if="{{auditStatus == 1}}" src="../../images/cashOut-line-hui.png" mode="widthFix"
+            class="cashOut_flow_line"></image>
+        <image wx:else src="../../images/cashOut-line.png" mode="widthFix" class="cashOut_flow_line"></image>
+
+        <image wx:if="{{auditStatus == 1}}" src="../../images/cash-out-success-hui@2x.png" mode="widthFix"></image>
+        <image wx:if="{{auditStatus == 2}}" mode="widthFix" src="../../images/cash-out-success@2x.png"></image>
+        <image wx:if="{{auditStatus == 3}}" mode="widthFix" src="../../images/cash-out-fail@2x.png"></image>
+
+    </view>
+</view>
+<view class="bottom_bar">
+    <view bindtap="back_wallet">返回钱包</view>
+</view>

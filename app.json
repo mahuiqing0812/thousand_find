@@ -1,0 +1,41 @@
+      {
+
+  "pages": [
+    "pages/index/index",
+    "pages/cashList/cashList",
+    "pages/detailInfo/detailInfo",
+    "pages/orderTallyup/orderTallyup",
+    "pages/feedback/feedback",
+    "pages/itemImgDet/itemImgDet",
+    "pages/itemImgList/itemImgList",
+    "pages/itList/itList",
+    "pages/orderDetailS/orderDetailS",
+    "pages/itemDetSeller/itemDetSeller",
+    "pages/itemList/itemList",
+    "pages/orderList/orderList",
+    "pages/myWallet/myWallet",
+    "pages/gameCase/gameCase",
+    "pages/orderDetail/orderDetail",
+    "pages/ItCommodity/ItCommodity",
+    "pages/qualityItem/qualityItem",
+    "pages/myCard/myCard",
+    "pages/addCard/addCard",
+    "pages/bindCard/bindCard",
+    "pages/cashoutResult/cashoutResult",
+    "pages/cashWithdrawal/cashWithdrawal",
+    "pages/aboutMe/aboutMe",
+    "pages/helpCenter/helpCenter",
+
+    "pages/noticeDetail/noticeDetail",
+
+    "pages/logs/logs"
+
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "众千寻",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

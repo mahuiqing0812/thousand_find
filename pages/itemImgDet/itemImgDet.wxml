@@ -1,0 +1,5 @@
+<!--pages/itemImgDet/itemImgDet.wxml-->
+<image src="{{imgUrl}}" mode="widthFix"></image>
+<view class="screenshot_bottom">
+    <view class="save_btn" bindtap="save">保存图片到相册</view>
+</view>

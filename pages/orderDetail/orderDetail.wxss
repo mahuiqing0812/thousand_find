@@ -1,0 +1,55 @@
+.footerBar {
+    width: 100%;
+    height: 96rpx;
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    border-top: 2rpx solid #f2f2f2;
+}
+
+
+.order_states .instalment_msg {
+    width: 90%;
+    margin: 30rpx auto 0;
+    font-size: 20rpx;
+}
+
+.curcle {
+    margin-right: 8rpx;
+}
+
+.order_states .instalment_msg .instalment_task {
+    text-align: left;
+    margin-top: 10rpx;
+}
+
+.order_states .instalment_msg .times_and_price .time_slice {
+    color: #666;
+}
+
+
+.order_states .instalment_msg .already_pay .time_slice {
+    color: #FFB43C;
+}
+
+.order_states .instalment_msg .current_pay .time_slice {
+    color: #ee3344;
+}
+
+.order_states .instalment_msg .not_pay .time_slice {
+    color: #666;
+}
+
+
+.singleBtn .lianxikefu {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cancel_btns {
+    margin-top: 40rpx;
+}
+
+.cancelOrder_reason {
+    padding-bottom: 40rpx;
+}

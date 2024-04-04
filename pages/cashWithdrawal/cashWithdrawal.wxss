@@ -1,0 +1,225 @@
+.cash_top{
+  width: 100%;
+  height: 400rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40rpx;
+}
+.cash_top>image{
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.cash_top_one{
+  width: auto;
+  height: 130rpx;
+  display: inline-flex;
+  flex-direction: column;
+  color: #fff;
+  position: absolute;
+  top:133rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.cash_top_one text:first-child{
+  width: 100%;
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: 60rpx;
+  text-align: center;
+}
+.cash_top_one text:last-child{
+  width: 100%;
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+  text-align: center;
+}
+.cash_top_two{
+   width: 92%;
+  height: 120rpx;
+  display: inline-flex;
+  flex-direction: row;
+  color: #fff;
+  position: absolute;
+  top:296rpx;
+  left: 4%;
+}
+.cash_top_left{
+  width: 49.7%;
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+}
+.cash_top_left text{
+  margin-left: 60rpx;
+}
+.cash_top_left text:first-child{
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  margin-top: 20.4rpx;
+}
+.cash_top_left text:last-child{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 36rpx;
+}
+.cash_top_middle{
+ width: 4rpx;
+ height: 40rpx;
+ margin-top: 40rpx;
+ background-color: rgba(255,255,255,0.50);
+}
+.cash_top_right{
+  width: 49.7%;
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+}
+.cash_top_right text{
+  margin-left: 60rpx;
+}
+.cash_top_right text:first-child{
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  margin-top: 20.4rpx;
+}
+.cash_top_right text:last-child{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 36rpx;
+}
+.explain{
+  width: 182rpx;
+  height: 34rpx;
+  margin-top: 20rpx;
+  margin-left: 72%;
+  display: flex;
+  flex-direction: row;
+}
+.explain>image{
+  width: 28rpx;
+  height: 28rpx;
+   display: inline-block;
+  overflow: hidden;
+  margin-top: 3rpx;
+}
+.explain text{
+  width: 144rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #EE3344;
+  margin-left: 10rpx;
+}
+.cash_middle{
+  width: 92%;
+  height: auto;
+  margin-left: 4%;
+  margin-top: 43rpx;
+}
+.cash_middle>text{
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 36rpx;
+  color: #333;
+}
+.cash_middle_withdrawal{
+  width: 100%;
+  margin-top: 40rpx;
+  padding: 52rpx 30rpx;
+  box-sizing:border-box;
+  border-radius: 8rpx;
+  background: #fff;
+  overflow: hidden; rflow: hidden;
+  box-shadow: 0 2rpx 10rpx 2rpx rgba(217,217,217,0.50);
+}
+.cash_middle_withdrawal text:first-child{
+  width: 60rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: 60rpx;
+  color: #333;
+}
+.cash_middle_withdrawal text:last-child{
+  width: 112rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: 28rpx;
+  color: #333;
+  margin-left: 30rpx;
+}
+.cash_middle_withdrawal input{
+  display: block;
+  line-height: 84rpx;
+  display: block;
+  height: 84rpx;
+  color: #333;
+  margin-left: 40rpx;
+  font-size: 50rpx;
+  width: 380rpx;
+}
+
+.cash_placeholder{
+  font-size: 28rpx;
+}
+.cash_middle_con{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  margin-top: 40rpx;
+  background-image:  linear-gradient(to left, rgba(255,80,76,0.2) 0%, rgba(255,180,60,0.2) 100%);
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 96rpx;
+}
+.allmoney{
+  line-height: 84rpx;
+}
+.cash_middle_con>image{
+  width: 48rpx;
+  height: 48rpx;
+  left: 8rpx;
+  top: 6rpx;
+  position: absolute;
+
+}
+.cash_middle_con text{
+  display: block;
+  
+  font-size: 24rpx;
+  color: #EE3344;
+  
+}
+.cash_bottom{
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+}
+button{
+  width: 92%;
+  height: 68rpx;
+  line-height: 68rpx;
+  font-size: 32rpx;
+  color: #fff;
+  padding: 0;
+  border-radius: 60rpx;
+  margin-top: 16rpx;
+  background-image: linear-gradient(to left, #FF504C 0%, #FFB43C 100%);
+}
+button::after{
+ border: 0;
+}
+.button-hover{
+  color: #fff;
+}

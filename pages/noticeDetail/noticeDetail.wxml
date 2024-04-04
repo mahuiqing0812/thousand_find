@@ -1,0 +1,28 @@
+<!--pages/aboutMe/aboutMe.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="summary">
+    <view class="summary_title font_W">{{noticeListArr[0].Title}}</view>
+    <view class="summary_detail">
+        <view class="company_summ">
+            <!-- <view class="company_summ_title">公告小标题文案文案</view> -->
+            <view class="company_summ_detail">
+                <!-- {{noticeListArr[0].NoticContent}} -->
+                <view class="wxParse">
+                    <template is="wxParse" data="{{wxParseData: content.nodes}}" />
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="history_notice">
+    <view class="hisNotice_title font_W">历史公告</view>
+    <view class="notice_list">
+        <view class="noticeList_item" wx:for="{{noticeListArr}}" wx:key="index">
+            <view class="hisNoticeItem_title">{{item.Title}}</view>
+            <view class="hisNoticeItem_time">{{item.CreatorTime}}</view>
+            <image src="../../images/icon-xiangyou-hui@2x.png" mode="widthFix"></image>
+        </view>
+
+    </view>
+
+</view>

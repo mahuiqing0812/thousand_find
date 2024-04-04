@@ -1,0 +1,91 @@
+<!--pages/orderTallyup/orderTallyup.wxml-->
+<!-- 商品信息开始 -->
+<view class="">
+    <view class="contactWay_title font_W">项目信息</view>
+    <view class="order_detail">
+        <view><text>项目名称：</text> <text>{{itemMsg.ProjectName}}</text></view>
+        <view><text>描述：</text> {{itemMsg.ProjectDesc}}</view>
+        <view><text>项目类型：</text> <text>{{itemMsg.FunctionSortName}}</text></view>
+        <view><text>支持终端：</text> <text>{{terminalStr}} </text></view>
+        <view><text>项目价格：</text> <text>{{itemMsg.Price}}</text></view>
+        <view><text>缴纳押金：</text> <text>{{itemMsg.DepositMoney}}</text></view>
+        <view><text>项目编号：</text> <text>{{itemMsg.ProjectCode}}</text></view>
+        <view><text>创建时间：</text> <text>{{itemMsg.CreatorTime}}</text></view>
+        <view class="item_fenqi"><text>项目分期：</text> <text>{{itemMsg.TotalTerm}}期</text></view>
+
+        <view class="instalment_msg">
+            <view class="task_item" wx:for="{{itemMsg.ProjectTermList}}" wx:key="index">
+                <view class="times_and_price">
+                    <view class="time_slice"><text>●</text>第{{item.Term}}期</view>
+                    <view class="price">{{item.PricePercentage}}%</view>
+                    <view class="days">{{item.PhaseDays}}天</view>
+                </view>
+                <view class="instalment_task">
+                    阶段任务：{{item.PhaseTask}}
+                </view>
+            </view>
+
+        </view>
+
+    </view>
+</view>
+<!-- 联系方式开始 -->
+<view class="contact_way">
+    <view class="contactWay_title font_W">联系方式</view>
+    <view class="contactWay_reveal">
+        <image src="../../images/icon-shouji-18x18@2x.png" mode="widthFix"></image>
+        <view class="enter_phone"><input type="number" placeholder="请输入手机号" value="{{phoneNum}}"
+                bindinput='phonechange' /></view>
+
+        <view class="auto_btn">
+            <button class="autoBtn_box" open-type="getPhoneNumber" bindgetphonenumber="bindGetUserPhone">自动填写</button>
+        </view>
+    </view>
+</view>
+<!-- 订单备注开始 -->
+<view class="contact_way remark">
+    <view class="contactWay_title font_W">订单备注</view>
+    <view class="remark_enter">
+        <textarea name="" id="" cols="10" rows="2" placeholder="请输入订单备注" placeholder-class="remark_place"
+            bindinput="getRemarkMsg"></textarea>
+    </view>
+</view>
+
+<view class="buy">
+    <view class="buy_addUp fl">合计：￥<text>{{itemMsg.ProjectTermList[0].PhaseMoney}}</text></view>
+    <view class="buyBtn fr font_W" bindtap="tallpUp">立即购买</view>
+</view>
+
+<!-- 支付弹窗 -->
+
+
+<view class="mask" catchtouchmove="return" wx:if="{{payWinIsShow}}"></view>
+
+<view class="pay_confirm" wx:if="{{payWinIsShow}}">
+    <view class="pay_confirm_main">
+        <view class="pay_confirm_mainhd">
+            <view class="pay_title">众千寻</view>
+            <view class="pay_num"><text class="pay_ico">￥</text>{{itemMsg.ProjectTermList[0].PhaseMoney}}</view>
+        </view>
+        <view class="pay_confirm_mainbd">
+            <view class="sele_payway">选择支付方式</view>
+            <radio-group bindchange="radioChange">
+                <label class="radio reasons_item">
+                    <image src="../../images/icon-weixinzhifu@2x.png" mode="widthFix"></image>
+                    <radio checked value="wx" />微信支付
+                </label>
+                <label class="{{walletMsg.IsPay ? '' : 'balance'}}">
+                    <image wx:if="{{walletMsg.IsPay}}" src="../../images/icon-jinbi@2x.png" mode="widthFix"></image>
+                    <image wx:else src="../../images/icon-jinbi-hui@2x.png" mode="widthFix"></image>
+                    <radio value="wallet" disabled="{{!walletMsg.IsPay}}" />钱包余额
+                    <text class="balance">（剩余：{{walletMsg.AvailableBalance}}元）</text>
+                    <text wx:if="{{!walletMsg.IsPay}}" class="notEnoughMoney">金额不足</text>
+                </label>
+            </radio-group>
+        </view>
+        <view class="confirmPay font_W" bindtap="confirmPay">确认支付</view>
+    </view>
+    <view class="pay_confirm_btn" bindtap="closePayConfirm">
+        <image src="../../images/icon-guanbi@2x.png" mode="widthFix"></image>
+    </view>
+</view>

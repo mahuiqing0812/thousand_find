@@ -1,0 +1,377 @@
+<!--pages/case/case.wxml-->
+<view class='topTabSwiper'>
+  <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>全部</view>
+  <view class='tab_left'></view>
+  <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>待支付</view>
+  <view class='tab_left'></view>
+  <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}' data-current="2" bindtap='checkCurrent'>开发中</view>
+  <view class='tab_left'></view>
+  <view class='tab  {{currentData == 3 ? "tabBorer" : ""}}' data-current="3" bindtap='checkCurrent'>待验收</view>
+  <view class='tab_left'></view>
+  <view class='tab  {{currentData == 4 ? "tabBorer" : ""}}' data-current="4" bindtap='checkCurrent'>已完成</view>
+</view>
+<swiper current="{{currentData}}" class='swiper' style="height:{{windowH}}px" duration="300" bindchange="bindchange">
+  <swiper-item catchtouchmove="stopTouchMove">
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <view class='swiper_con'>
+        <block wx:if="{{orderListArr.length != 0}}">
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="goOrderDetail" data-orderno="{{item.OrderNo}}">
+              <view class='swiper_case'>
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="font_W orderTitle">{{item.ProjectName}}</text>
+                    <text wx:if="{{item.OrderStatus == 1}}" class="tags">待支付</text>
+                    <text wx:elif="{{item.OrderStatus == 2}}" class="tags">开发中</text>
+                    <text wx:elif="{{item.OrderStatus == 3}}" class="tags">待验收</text>
+                    <text wx:elif="{{item.OrderStatus == 4}}" class="tags">已完成</text>
+                    <text wx:elif="{{item.OrderStatus == 5}}" class="tags">交易关闭</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.OrderRemark}}</view>
+
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>
+                  <view>项目价格：¥<text>{{item.OrderPrice}}</text> </view>
+
+                  <block wx:if="{{item.payBtnShow}}">
+                    <view class="benqi" wx:if="{{item.OrderStatus == 3}}">已支付金额：¥{{item.OrderPayPrice}}</view>
+                    <view class="benqi" wx:elif="{{item.OrderStatus == 4}}">已完成金额：¥{{item.OrderPayPrice}}</view>
+                    <view class="benqi" wx:else>本期应付金额：¥{{item.UnpaidOrderItemPrice}}</view>
+                  </block>
+                  <view class="benqi" wx:else>项目金额已结清</view>
+                </view>
+                <view class='caseBottom_left'>
+
+                  <view class="btns" wx:if="{{item.OrderStatus == 1}}">
+
+                    <view class="auto_btn cancelBtn btnsL">
+                      <view class="autoBtn_box" catchtap="cancelOrder" data-orderno="{{item.OrderNo}}">取消订单</view>
+                    </view>
+                    <view class="auto_btn" catchtap="goPay" data-paymoney="{{item.OrderPrice}}"
+                      data-orderno="{{item.OrderNo}}" data-orderitemid="{{item.UnpaidOrderItemId}}">
+                      <view class="autoBtn_box">立即支付</view>
+                    </view>
+
+
+                  </view>
+                  <view class="btns" wx:elif="{{item.OrderStatus == 2}}">
+
+                    <view class="auto_btn" catchtap="conCustom" wx:if="{{item.payBtnShow}}">
+
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+                    <block wx:else>
+
+                      <view class="auto_btn btnsL" catchtap="conCustom">
+
+                        <button class="autoBtn_box" open-type="contact">联系客服</button>
+                      </view>
+                      <view class="auto_btn" catchtap="goPay" data-paymoney="{{item.OrderPrice}}"
+                        data-orderno="{{item.OrderNo}}" data-orderitemid="{{item.UnpaidOrderItemId}}">
+                        <view class="autoBtn_box">立即支付</view>
+                      </view>
+                    </block>
+                  </view>
+                  <view class="btns" wx:elif="{{item.OrderStatus == 3}}">
+
+                    <view class="auto_btn" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+                    <view class="auto_btn" catchtap="verifyReceiveGood" data-orderno="{{item.OrderNo}}">
+                      <view class="autoBtn_box">确认验收</view>
+                    </view>
+
+                  </view>
+                  <view class="btns" wx:else>
+
+                    <view class="auto_btn" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+
+
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="noOrder">
+            <view class="noOrder_imgB">
+              <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+            </view>
+            <text class="text1">您还没有项目</text>
+            <text class="text2">赶快联系客服发掘您的商机吧</text>
+            <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+          </view>
+        </block>
+
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item catchtouchmove="stopTouchMove">
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <block wx:if="{{orderListArr.length != 0}}">
+        <view class='swiper_con'>
+
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="goOrderDetail" data-orstate="1" data-orderno="{{item.OrderNo}}"
+              data-orderitemid="{{item.UnpaidOrderItemId}}">
+              <view class='swiper_case'>
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="font_W orderTitle">{{item.ProjectName}}</text>
+                    <text class="tags">待支付</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.OrderRemark}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>
+                  <view>项目价格：¥<text>{{item.OrderPrice}}</text> </view>
+                  <view class="benqi">本期应付金额：¥{{item.UnpaidOrderItemPrice}}</view>
+                </view>
+                <view class='caseBottom_left'>
+                  <view class="btns">
+                    <view class="auto_btn cancelBtn btnsL" catchtap="cancelOrder" data-orderno="{{item.OrderNo}}">
+                      <view class="autoBtn_box">取消订单</view>
+                    </view>
+                    <view class="auto_btn">
+                      <view class="autoBtn_box" catchtap="goPay" data-paymoney="{{item.OrderPrice}}"
+                        data-orderno="{{item.OrderNo}}" data-orderitemid="{{item.UnpaidOrderItemId}}">立即支付</view>
+                    </view>
+
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noOrder">
+          <view class="noOrder_imgB">
+
+            <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+          </view>
+          <text class="text1">您还没有项目</text>
+          <text class="text2">赶快联系客服发掘您的商机吧</text>
+          <!-- <view class="auto_btn" catchtap="conCustom"> -->
+          <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+          <!-- </view> -->
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item catchtouchmove="stopTouchMove">
+
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <block wx:if="{{orderListArr.length != 0}}">
+        <view class='swiper_con'>
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="goOrderDetail" data-orstate="2" data-orderno="{{item.OrderNo}}">
+              <view class='swiper_case'>
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="font_W orderTitle">{{item.ProjectName}}</text>
+                    <text class="tags">开发中</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.OrderRemark}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>
+                  <view>项目价格：¥<text>{{item.OrderPrice}}</text> </view>
+                  <view class="benqi" wx:if="{{item.payBtnShow}}">本期应付金额：¥{{item.UnpaidOrderItemPrice}}</view>
+                  <view class="benqi" wx:else>项目金额已结清</view>
+                </view>
+                <view class='caseBottom_left'>
+                  <view class="btns">
+                    <view class="auto_btn" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+                    <view class="auto_btn btnsL" wx:if="{{item.payBtnShow}}">
+                      <view class="autoBtn_box" catchtap="goPay" data-paymoney="{{item.OrderPrice}}"
+                        data-orderno="{{item.OrderNo}}" data-orderitemid="{{item.UnpaidOrderItemId}}">立即支付</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noOrder">
+          <view class="noOrder_imgB">
+
+            <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+          </view>
+          <text class="text1">您还没有项目</text>
+          <text class="text2">赶快联系客服发掘您的商机吧</text>
+          <!-- <view class="auto_btn" catchtap="conCustom"> -->
+          <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+          <!-- </view> -->
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item catchtouchmove="stopTouchMove">
+
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <block wx:if="{{orderListArr.length != 0}}">
+        <view class='swiper_con'>
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="goOrderDetail" data-orstate="3" data-orderno="{{item.OrderNo}}">
+              <view class='swiper_case'>
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="font_W orderTitle">{{item.ProjectName}}</text>
+                    <text class="tags">待验收</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.OrderRemark}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>
+                  <view>项目价格：¥<text>{{item.OrderPrice}}</text> </view>
+                  <view class="benqi">已支付金额：¥{{item.OrderPayPrice}}</view>
+
+                </view>
+                <view class='caseBottom_left'>
+                  <view class="btns">
+
+                    <view class="auto_btn btnsL" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+                    <view class="auto_btn" catchtap="verifyReceiveGood" data-orderno="{{item.OrderNo}}">
+                      <view class="autoBtn_box">确认验收</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noOrder">
+          <view class="noOrder_imgB">
+
+            <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+          </view>
+          <text class="text1">您还没有项目</text>
+          <text class="text2">赶快联系客服发掘您的商机吧</text>
+          <!-- <view class="auto_btn" catchtap="conCustom"> -->
+          <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+          <!-- </view> -->
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item catchtouchmove="stopTouchMove">
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <block wx:if="{{orderListArr.length != 0}}">
+        <view class='swiper_con'>
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="goOrderDetail" data-orstate="4" data-orderno="{{item.OrderNo}}">
+              <view class='swiper_case'>
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="font_W orderTitle">{{item.ProjectName}}</text>
+                    <text class="tags">已完成</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.OrderRemark}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>
+                  <view>项目价格：¥<text>{{item.OrderPrice}}</text> </view>
+
+                  <view class="benqi">已完成金额：¥{{item.OrderPayPrice}}</view>
+                </view>
+                <view class='caseBottom_left'>
+                  <view class="btns">
+                    <view class="auto_btn" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noOrder">
+          <view class="noOrder_imgB">
+
+            <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+          </view>
+          <text class="text1">您还没有项目</text>
+          <text class="text2">赶快联系客服发掘您的商机吧</text>
+          <!-- <view class="auto_btn" catchtap="conCustom"> -->
+          <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+          <!-- </view> -->
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+
+<view class="mask" wx:if="{{cancelOrderShow}}" catchtouchmove="return"></view>
+<view class="mask" wx:if="{{payWinIsShow}}" catchtouchmove="return"></view>
+
+<!-- 取消订单弹出层 -->
+<view class="cancelOrder_reason" wx:if="{{cancelOrderShow}}" catchtouchmove="return">
+  <view class="cancelOrder_tit">取消订单</view>
+  <view class="select_reason">请选择取消订单原因</view>
+
+  <radio-group>
+    <label class="radio reasons_item" wx:for="{{cancelReasonArr}}" wx:key="index">
+      <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.name}}
+    </label>
+  </radio-group>
+  <view class="operate_btns cancel_btns">
+    <view class="cancel_btn">
+      <view class="cancel_btnBox" bindtap="cancelOrderNo">暂不取消</view>
+    </view>
+    <view class="order_btn" bindtap="cancelOrderDefin">确定取消</view>
+  </view>
+</view>
+
+<!-- 支付按钮弹出层 -->
+<view class="pay_confirm" wx:if="{{payWinIsShow}}">
+  <view class="pay_confirm_main">
+    <view class="pay_confirm_mainhd">
+      <view class="pay_title">众千寻</view>
+      <view class="pay_num"><text class="pay_ico">￥</text>{{payMoney}}</view>
+    </view>
+    <view class="pay_confirm_mainbd">
+      <view class="sele_payway">选择支付方式</view>
+      <radio-group bindchange="radioChange">
+        <label class="radio reasons_item">
+          <image src="../../images/icon-weixinzhifu@2x.png" mode="widthFix"></image>
+          <radio checked value="wx" />微信支付
+        </label>
+        <label class="{{walletMsg.IsPay ? '' : 'balance'}}">
+          <image wx:if="{{walletMsg.IsPay}}" src="../../images/icon-jinbi@2x.png" mode="widthFix"></image>
+          <image wx:else src="../../images/icon-jinbi-hui@2x.png" mode="widthFix"></image>
+          <radio value="wallet" disabled="{{!walletMsg.IsPay}}" />钱包余额
+          <text class="balance">（剩余：{{walletMsg.AvailableBalance}}元）</text>
+          <text wx:if="{{!walletMsg.IsPay}}" class="notEnoughMoney">金额不足</text>
+        </label>
+      </radio-group>
+    </view>
+    <view class="confirmPay font_W" bindtap="confirmPay">确认支付</view>
+  </view>
+  <view class="pay_confirm_btn" bindtap="closePayConfirm">
+    <image src="../../images/icon-guanbi@2x.png" mode="widthFix"></image>
+  </view>
+</view>

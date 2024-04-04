@@ -1,0 +1,52 @@
+<!--pages/feedback/feedback.wxml-->
+
+<!-- 意见与建议开始 -->
+<view class="contact_way remark">
+    <view class="contactWay_title font_W">意见与建议</view>
+    <view class="remark_enter">
+        <textarea name="" id="" cols="10" rows="2" placeholder="请输入反馈内容" placeholder-class="remark_place"
+            bindinput="getOpinion"></textarea>
+    </view>
+</view>
+
+<view class="contactWay_title font_W pf-type">相关截图（选填）</view>
+<view class="question-images clearFloat">
+    <block wx:for="{{uploadimages}}" wx:key="*this">
+        <view class="q-image-wrap">
+            <!-- 图片缩略图  -->
+            <image class="q-image" src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview">
+            </image>
+            <!-- 移除图片的按钮  -->
+            <view class="q-image-remover" data-idx="{{index}}" bindtap="removeImage">
+                <icon class='iconfont icon-shutdown'></icon>
+            </view>
+        </view>
+    </block>
+    <view class='uploadImgBtn' bindtap="chooseImage" wx:if="{{uploadimages.length < 4}}">
+        <icon class='iconfont icon-jiahao'></icon>
+    </view>
+</view>
+
+
+<!-- 联系方式 -->
+<view class="contact_way">
+    <view class="contactWay_title font_W">联系方式（选填）</view>
+    <view class="contactWay_reveal">
+        <view class="enter_phone">
+            <input type="number" placeholder="请输入手机号" placeholder-class="contactWay" value="{{phoneNum}}"
+                bindinput='phonechange' />
+        </view>
+
+    </view>
+</view>
+
+<view class="btns">
+
+    <view class="operate_btns special_btn">
+        <view class="cancel_btn" bindtap="submitFeedBack">
+            提交反馈
+        </view>
+    </view>
+
+
+</view>

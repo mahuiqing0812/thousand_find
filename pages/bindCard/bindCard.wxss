@@ -1,0 +1,34 @@
+/* pages/myCard/myCard.wxss */
+.no_card{
+    padding-top: 500rpx;
+    position: relative;
+}
+
+.no_card image{
+    width: 160rpx;
+    position: absolute;
+    top: 300rpx;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.no_card text{
+    display: block;
+    font-size:28rpx;
+    color: #EE3344;
+    text-align: center;
+}
+.addCard_btn{
+    width: 600rpx;
+    height: 68rpx;
+    background-image: linear-gradient(to right, #FFB43C,  #FF504C);
+    box-shadow: 0 4rpx 10rpx -4rpx #FF543A;
+    margin: 166rpx auto 0;
+    font-size: 32rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 68rpx;
+    border-radius: 68rpx;
+    font-weight: bold;
+}

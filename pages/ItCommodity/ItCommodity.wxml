@@ -1,0 +1,57 @@
+<swiper autoplay="true" circular="true" interval="2000">
+  <swiper-item wx:for="{{bannerImgArr}}" wx:key="*this">
+    <image src='{{item.ImageUrl}}'></image>
+  </swiper-item>
+
+</swiper>
+
+<view class='commod_one'>
+  <view class='commod_one_top font_W'>
+    {{goodsMsgObj.GoodsTitle}}
+  </view>
+  <view class='commod_one_bottom'>{{goodsMsgObj.GoodsDesc}}</view>
+</view>
+
+<view class='comm_shop'>
+  <view class='commod_shop'>
+    <view class='commod_shop_top'>
+      <view>项目属性：</view>
+      <view class='commod_shop_topOne'>
+        <text wx:for="{{attrArr}}" wx:key="index">{{item.CategoryValue}}</text>
+        <!-- <text>游戏类型</text> -->
+      </view>
+    </view>
+  </view>
+  <view class='commod_shop_bottom'>
+    <view class='commod_shop_bottomLeft'>平台保障：</view>
+    <view class='shop_bottom_right'>
+
+      <view class='shop_right fl' wx:for="{{ensureTagsArr}}" wx:key="index">
+        <image src='{{item.IconUrl}}'></image>
+        <view class='shops_tts'>
+          <text>{{item.SortName}}</text>
+          <view class='shops_tt'></view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
+<view class='screenshot'>
+  <text class="font_W goodsDetail">商品详情</text>
+  <view class='screenshot_one' wx:for="{{goodsDetailArr}}" wx:key="*this">
+
+    <image src='{{item.ImageUrl}}' mode="widthFix"></image>
+  </view>
+</view>
+<view class='screenshot_bottom'>
+
+  <view class='screenshot_right'>
+    <view><button open-type="contact">联系客服</button></view>
+    <view class="share_goods" bindtap="skip_itemImglist">分享商品</view>
+  </view>
+</view>
+
+<view class="xuanfu_btn" wx:if="{{xuanfuIsshow}}" bindtap="skip_index">
+  <image src="../../images/icon-xuanfu@2x.png" mode="widthFix"></image>
+</view>

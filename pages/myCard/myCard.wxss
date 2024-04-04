@@ -1,0 +1,144 @@
+page {
+    position: relative;
+}
+
+.card_bg {
+
+    background-image: url("https://extensionsapi1.1863.cn/images_wechat/my_card_bg.png");
+}
+
+.card_bg {
+    height: 380rpx;
+    background-size: contain;
+    color: #fff;
+    font-size: 32rpx;
+    padding: 64rpx 70rpx 0;
+    box-sizing: border-box;
+
+}
+
+.card_msg {
+    overflow: hidden;
+}
+
+.card_num {
+    font-size: 40rpx;
+    margin-top: 50rpx;
+    text-align: center;
+}
+
+.card_name {
+    margin-top: 36rpx;
+    margin-right: 15rpx;
+    text-align: center;
+}
+
+
+.card_btn {
+    font-weight: bold;
+    font-size: 40rpx;
+    text-align: right;
+    margin-top: 26rpx;
+}
+
+.bind_select {
+    position: absolute;
+    top: 145rpx;
+    right: 49rpx;
+    color: #EE3344;
+    text-align: center;
+    background-color: #fff;
+    width: 200rpx;
+    box-shadow: 0 4rpx 20rpx 0 rgba(0, 0, 0, 0.10);
+    font-size: 28rpx;
+}
+
+.bind_select view {
+    line-height: 88rpx;
+
+}
+
+.bind_select view:first-child {
+    border-bottom: 2rpx solid #D9D9D9;
+    box-sizing: border-box;
+}
+
+/* 解除绑定弹窗 */
+.remove_bind_win {
+    width: 600rpx;
+    background: #fff;
+    border-radius: 8rpx;
+    position: absolute;
+    top: 285rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 32rpx;
+    color: #333;
+    z-index: 111111;
+}
+
+.remove_bind_win .removeBind_winHd {
+    padding: 70rpx 30rpx;
+    border-bottom: 2rpx solid #D5D5D5;
+}
+
+.remove_bind_win .removeBind_winBd {
+    display: flex;
+    height: 88rpx;
+
+}
+
+.remove_bind_win .removeBind_winBd view {
+    text-align: center;
+    color: #666;
+    line-height: 88rpx;
+    flex: 1;
+}
+
+.remove_bind_win .removeBind_winBd .no_remove {
+    color: #EE3344;
+    border-left: 2rpx solid #D5D5D5;
+}
+
+.no_card {
+    padding-top: 500rpx;
+    position: relative;
+}
+
+.no_card image {
+    width: 160rpx;
+    position: absolute;
+    top: 300rpx;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.no_card text {
+    display: block;
+    font-size: 28rpx;
+    color: #EE3344;
+    text-align: center;
+}
+
+.addCard_btn {
+    width: 600rpx;
+    height: 68rpx;
+    background-image: linear-gradient(to right, #FFB43C, #FF504C);
+    box-shadow: 0 4rpx 10rpx -4rpx #FF543A;
+    margin: 166rpx auto 0;
+    font-size: 32rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 68rpx;
+    border-radius: 68rpx;
+    font-weight: bold;
+}
+
+.view_hide {
+    display: none;
+}
+
+.view_show {
+    display: block;
+}

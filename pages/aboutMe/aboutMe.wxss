@@ -1,0 +1,80 @@
+/* pages/aboutMe/aboutMe.wxss */
+page{
+    padding-bottom: 86rpx;
+}
+.summary{
+    background-color: #fff;
+    width: 690rpx;
+    margin: 0 auto;
+    margin-top: 134rpx;
+    box-shadow: 0 2rpx 10rpx 2rpx rgba(217,217,217,0.50);
+    position: relative;
+    padding: 20rpx 0 88rpx 0;
+    color: #333;
+    border-radius: 8rpx;
+}
+.logo{
+    width: 120rpx;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -70rpx;
+}
+.summary_title{
+    font-size: 32rpx;
+    text-align: center;
+    height: 175rpx;
+    line-height: 175rpx;
+}
+.company_summ_title{
+    font-size: 28rpx;
+    position: relative;
+    padding-left: 30rpx;
+    line-height: 32rpx;
+}
+.company_summ_title::before{
+    content: "";
+    width: 8rpx;
+    height: 32rpx;
+    border-radius: 8rpx;
+    position: absolute;
+    left: 0;
+    background-image: linear-gradient(to right, #FFB43C, #FF504C);
+}
+.summary_detail .company_summ_detail{
+    margin-top: 46rpx;
+    font-size: 24rpx;
+    color: #666;
+    text-indent: 2em;
+    padding: 0 30rpx;
+    line-height: 34rpx;
+}
+
+/* 平台简介 */
+
+.hathpace_summ .company_summ_title{
+    margin: 65rpx 0 50rpx 0;
+}
+/* 联系方式 */
+.contact_way{
+    padding: 64rpx 0 60rpx 0;
+    background-color: #fff;
+    width: 690rpx;
+    box-shadow: 0 2rpx 10rpx 2rpx rgba(217,217,217,0.50);
+    margin: 0 auto;
+    margin-top: 40rpx;
+    border-radius: 8rpx;
+}
+.contact_way_title{
+    margin-bottom: 43rpx;
+
+}
+.contact_way_detail{
+    padding: 0 30rpx;
+}
+.contact_way_detail view{
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    color: #666;
+}

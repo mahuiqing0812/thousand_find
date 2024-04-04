@@ -1,0 +1,125 @@
+/* pages/aboutMe/aboutMe.wxss */
+
+@import "../../wxParse/wxParse.wxss";
+
+page {
+    padding-bottom: 86rpx;
+}
+
+.summary {
+    background-color: #fff;
+    width: 690rpx;
+    margin: 0 auto;
+    margin-top: 60rpx;
+    box-shadow: 0 2rpx 10rpx 2rpx rgba(217, 217, 217, 0.50);
+    position: relative;
+    padding: 20rpx;
+    color: #333;
+    border-radius: 8rpx;
+}
+
+.logo {
+    width: 120rpx;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -70rpx;
+}
+
+.summary_title {
+    font-size: 32rpx;
+    text-align: center;
+
+    height: 140rpx;
+    line-height: 140rpx;
+
+}
+
+.company_summ_title {
+    font-size: 28rpx;
+    position: relative;
+    padding-left: 30rpx;
+    line-height: 32rpx;
+}
+
+.company_summ_title::before {
+    content: "";
+    width: 8rpx;
+    height: 32rpx;
+    border-radius: 8rpx;
+    position: absolute;
+    left: 0;
+    background-image: linear-gradient(to right, #FFB43C, #FF504C);
+}
+
+.summary_detail .company_summ_detail {
+    font-size: 24rpx;
+    color: #666;
+    text-indent: 2em;
+    padding: 0 30rpx;
+    line-height: 34rpx;
+}
+
+/* 平台简介 */
+
+.hathpace_summ .company_summ_title {
+    margin: 65rpx 0 50rpx 0;
+}
+
+/* 历史公告 */
+.history_notice {
+    margin-top: 20rpx;
+    color: #333;
+
+}
+
+.history_notice .hisNotice_title {
+    font-size: 36rpx;
+    height: 130rpx;
+    line-height: 130rpx;
+    padding-left: 30rpx;
+}
+
+.notice_list {
+    width: 690rpx;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8rpx;
+    box-shadow: 0 2rpx 10rpx 2rpx rgba(217, 217, 217, 0.50);
+}
+
+.noticeList_item {
+    display: flex;
+    font-size: 28rpx;
+    padding: 0 30rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    box-shadow: inset 0 -2rpx 0 0 #F2F2F2;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.history_notice view:last-child .noticeList_item {
+    border: none;
+}
+
+.hisNoticeItem_title {
+    width: 410rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.hisNoticeItem_time {
+    font-size: 24rpx;
+    color: #999;
+    position: absolute;
+    right: 60rpx;
+}
+
+.noticeList_item image {
+    width: 28rpx;
+    position: absolute;
+    right: 30rpx;
+    top: 30rpx;
+}

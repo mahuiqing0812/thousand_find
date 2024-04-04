@@ -1,0 +1,26 @@
+/* pages/itemImgList/itemImgList.wxss */
+.list_cotent {
+    width: 92%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30rpx auto 0;
+}
+
+.list_cotent .listItem {
+    width: 335rpx;
+    border-radius: 8rpx;
+    margin-bottom: 20rpx;
+    background-color: #fff;
+    padding: 10rpx;
+    box-sizing: border-box;
+    box-shadow: 0 2rpx 10rpx 2rpx rgba(217, 217, 217, 0.50);
+}
+
+.list_cotent .listItem image {
+    width: 100%;
+}
+
+.list_cotent .listItem:nth-child(2n-1) {
+
+    margin-right: 20rpx;
+}

@@ -1,0 +1,285 @@
+page {
+  background-color: #fff;
+  position: relative;
+}
+
+.banner {
+  width: 750rpx;
+  height: 314rpx;
+}
+
+.banner swiper {
+  height: 314rpx;
+}
+
+
+/* 公告 */
+.content_box {
+  position: absolute;
+  top: 282rpx;
+  border-radius: 10rpx 10rpx 0 0;
+  background-color: #fff;
+  width: 100%;
+  padding-top: 40rpx;
+  box-sizing: border-box;
+}
+
+.notice {
+  width: 92%;
+  height: 68rpx;
+  line-height: 68rpx;
+  padding: 0 30rpx;
+  margin: 0 auto;
+  /* margin-top: 20rpx; */
+  box-sizing: border-box;
+  border-radius: 8rpx;
+  display: flex;
+  position: relative;
+  box-shadow: 0 2rpx 10rpx 2rpx rgba(217, 217, 217, 0.50);
+
+}
+
+.notice .no_ico1 {
+  width: 36rpx;
+  height: 36rpx;
+  box-sizing: border-box;
+  padding-top: 8rpx;
+  left: 30rpx;
+}
+
+.notice .notice_icon {
+  position: absolute;
+  top: 0;
+  z-index: 111;
+}
+
+.notice .no_ico2 {
+  width: 28rpx;
+  height: 28rpx;
+  box-sizing: border-box;
+  padding-top: 6rpx;
+  right: 30rpx;
+}
+
+/* 公告部分的样式 */
+.notice_txt {
+  width: 520rpx;
+  margin-left: 50rpx;
+  overflow: hidden;
+}
+
+.marquee_box {
+  width: 100%;
+  position: relative;
+}
+
+.marquee_text {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+}
+
+.notice_txt {
+  width: 520rpx;
+  margin: 0 auto;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  animation: marquee 6s linear infinite;
+}
+
+/* 公告的滚动动画 */
+@keyframes marquee {
+  0% {
+    text-indent: 20em;
+  }
+
+  100% {
+    text-indent: -12em;
+  }
+}
+
+/* 公告结束 */
+
+.classify_lis {
+  margin-top: 50rpx;
+}
+
+
+.fun_list {
+  display: flex;
+  width: 690rpx;
+  margin: 0 auto;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
+.fun_list .fun_list_item {
+  width: 210rpx;
+  border-radius: 8rpx;
+  margin-bottom: 40rpx;
+  padding-top: 120rpx;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+}
+
+.fun_cla .fun_list .fun_list_item image {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0rpx;
+  width: 120rpx;
+  height: 120rpx;
+
+}
+
+
+.terminal_cla .fun_list_item {
+  width: 150rpx;
+  height: 160rpx;
+  text-align: left;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #333;
+  padding-top: 90rpx;
+  background-color: #fff;
+  box-shadow: 0 1rpx 5rpx 1rpx rgba(217, 217, 217, 0.50);
+  margin-bottom: 60rpx;
+}
+
+.terminal_cla .fun_list_item image {
+  width: 150rpx;
+  height: 160rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.terminal_cla .xcx {
+  background: url("https://extensionsapi1.1863.cn/images_wechat/icon_mobile.png");
+}
+
+.terminal_cla .APP {
+  background: url("https://extensionsapi1.1863.cn/images_wechat/icon_app.png");
+}
+
+.terminal_cla .H5 {
+  background: url("https://extensionsapi1.1863.cn/images_wechat/icon_h5.png");
+}
+
+.terminal_cla .PC {
+  background: url("https://extensionsapi1.1863.cn/images_wechat/icon_phone.png");
+}
+
+.terminal_cla .term_pic {
+  width: 150rpx;
+  height: 90rpx;
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.terminal_cla .fun_list_item .term_line {
+  width: 24rpx;
+  height: 4rpx;
+  border-radius: 4rpx;
+  position: absolute;
+  left: 20rpx;
+  bottom: 20rpx;
+  background-image: linear-gradient(-225deg, #FF504C 0%, #FFB43C 100%);
+}
+
+/* 项目案例、进行中的项目等导航开始 */
+.subnav_list {
+  width: 92%;
+  margin: 0 auto;
+  padding-bottom: 74rpx;
+
+}
+
+.subnav_list .subnav_item {
+  box-sizing: border-box;
+  padding: 36rpx 40rpx;
+  display: flex;
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 30rpx;
+  border-radius: 8rpx;
+  height: 160rpx;
+  box-shadow: 0 2rpx 10rpx 2rpx rgba(217, 217, 217, 0.50);
+  line-height: 88rpx;
+}
+
+.subnav_list view.subnav_item:last-child {
+  margin-bottom: 85rpx;
+}
+
+.subnav_list .subnav_item .subnavItem_icon {
+  width: 78rpx;
+  border-radius: 8rpx;
+}
+
+.subnav_list .subnav_item .subnavItem_detail {
+  margin-left: 66rpx;
+
+}
+
+.subnav_list .subnav_item .detail_title {
+  font-size: 32rpx;
+}
+
+.subnav_list .subnav_item .subnavItem_bgIcon {
+  width: 160rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.subnav_list .subnav_item .subnavItem_icon image {
+  border-radius: 8rpx;
+
+}
+
+.subnav_list .subnav_item .subnavItem_bgIcon image {
+  border-radius: 8rpx;
+}
+
+/* 授权按钮 */
+.authorize_bg {
+
+  background: url("https://extensionsapi1.1863.cn/images_wechat/authorize_bg.png");
+
+}
+
+.authorize_bg {
+  width: 620rpx;
+  height: 720rpx;
+  background-size: cover;
+  position: fixed;
+  top: 258rpx;
+  z-index: 1000;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.authorize_btn {
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  bottom: 80rpx;
+  background-image: linear-gradient(to right, #FFB43C, #FF504C);
+  z-index: 222222;
+  width: 400rpx;
+  height: 70rpx;
+  color: #fff;
+  border-radius: 70rpx;
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 70rpx;
+  box-shadow: 0 2px 5px -2px #FF543A;
+}

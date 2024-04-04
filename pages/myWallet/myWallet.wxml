@@ -1,0 +1,85 @@
+<!--pages/myWallet/myWallet.wxml-->
+<view class="wallet_overview">
+    <view class="wallet_num">￥{{walletNum}}</view>
+    <view class="wallet_txt">账户余额</view>
+    <view class="wallet_btns">
+        <view class="deposit" bindtap="showDialogBtn">充值</view>
+        <view class="withdraw" bindtap="skip_cashOut">提现</view>
+    </view>
+    <view class="wallet_skip_btns">
+        <view class="my_cardbtn" bindtap="skip_bindcard">我的银行卡 ></view>
+        <view class="cash_record" bindtap="skip_cashList">提现记录 ></view>
+
+    </view>
+</view>
+<view class="trade_detail">
+    <view class="trade_detail_tit">交易明细</view>
+    <view class="trade_detail_list">
+        <view class="trade_list_item" wx:for="{{tradeListArr}}" wx:key="index">
+            <view class="tradeList_item_hd">
+                <view class="fl">流水号：{{item.BusinessNo}}</view>
+                <view wx:if="{{item.TradeType == 2 }}" class="fr" bindtap="checkDetail_cashOut"
+                    data-createtime="{{item.CreateTime}}">查看详情 ></view>
+                <view wx:elif="{{item.TradeType == 3 }}" class="fr" data-orderno="{{item.OrderCode}}"
+                    data-orderstate="{{item.TradeStatus}}" bindtap="checkDetail_payout">查看订单 ></view>
+            </view>
+            <view class="tradeList_item_bd">
+                <view class="trade_type trType4" wx:if="{{item.TradeType == 1}}">充值 {{item.TradeAmount}}元</view>
+                <view class="trade_type trType4" wx:if="{{item.TradeType == 2}}">提现 {{item.TradeAmount}}元</view>
+                <view class="trade_type trType2"
+                    wx:elif="{{item.TradeType == 4 || item.TradeType == 5 || item.TradeType == 7}}">收入
+                    {{item.TradeAmount}}元</view>
+                <view class="trade_type trType3" wx:elif="{{item.TradeType == 3 || item.TradeType == 6}}">支出
+                    {{item.TradeAmount}}元</view>
+                <view class="trade_remark">{{item.TradeRemark}}</view>
+
+                <view class="trade_type trType1" wx:if="{{item.TradeType == 2}}">
+                    <view class="trade_status" wx:if="{{item.AuditStatus == 1}}">审核状态：
+                        <text class='trade_status1'>待审核</text>
+                    </view>
+                    <view class="trade_status" wx:elif="{{item.AuditStatus == 2}}">审核状态：
+                        <text class='trade_status2'>审核中</text>
+                    </view>
+                    <view class="trade_status" wx:elif="{{item.AuditStatus == 3}}">审核状态：
+                        <text class='trade_status3'>已完成</text>
+                    </view>
+                    <view class="trade_status" wx:elif="{{item.AuditStatus == 5}}">审核状态：
+                        <text class='trade_status3'>驳回提现</text>
+                    </view>
+                </view>
+                <view class="trade_type trType1" wx:elif="{{item.TradeType != 2}}">
+                    <view class="trade_status" wx:if="{{item.TradeStatus == 1}}">支付状态：
+                        取消支付
+                    </view>
+                    <view class="trade_status" wx:elif="{{item.TradeStatus == 2}}">支付状态：
+                        支付中
+                    </view>
+                    <view class="trade_status" wx:elif="{{item.TradeStatus == 3}}">支付状态：
+                        已完成
+                    </view>
+                </view>
+                <view class="trade_date">{{item.CreateTime}}</view>
+            </view>
+        </view>
+
+    </view>
+</view>
+
+<!-- 确认充值的弹框 -->
+
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="return" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">充值</view>
+    <view class="modal-content">
+        <view class="modal-input">
+
+            <input placeholder-class="input-holder" type="digit" maxlength="5" bindinput="inputChange" class="input"
+                placeholder="请输入充值金额"></input>
+
+        </view>
+    </view>
+    <view class="modal-footer">
+        <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+        <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定充值</view>
+    </view>
+</view>

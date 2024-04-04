@@ -1,0 +1,66 @@
+<!--pages/helpCenter/helpCenter.wxml-->
+<view class="question1 first">
+    <view class="question1_title">
+        <image src="../../images/icon-bangzhu@2x.png" mode="widthFix" class="help_icon"></image>
+        <text class="font_W">什么是冻结资金？</text>
+    </view>
+    <view class="question1_detail">
+        冻结资金是指已经在交易流程或者提现流程中，无法自由操作的资金。
+    </view>
+</view>
+<view class="question1">
+    <view class="question1_title">
+        <image src="../../images/icon-bangzhu@2x.png" mode="widthFix" class="help_icon"></image>
+        <text class="font_W">提现的金额会立即到账吗？</text>
+    </view>
+    <view class="question1_detail">
+        提现涉及到资金从平台到银行到用户的存入转出，正常7个工作日之内到账。
+    </view>
+</view>
+<view class="question1">
+    <view class="question1_title">
+        <image src="../../images/icon-bangzhu@2x.png" mode="widthFix" class="help_icon"></image>
+        <text class="font_W">如何查看自己的资金明细？</text>
+    </view>
+    <view class="question1_detail">
+        在我的个人中心里有我的钱包入口，进而查看资金明细。
+    </view>
+</view>
+<view class="question1">
+    <view class="question1_title">
+        <image src="../../images/icon-bangzhu@2x.png" mode="widthFix" class="help_icon"></image>
+        <text class="font_W">如何查看订单的进度情况？</text>
+    </view>
+    <view class="question1_detail">
+        在个人中心-查看全部里查看订单，订单详情页有具体的进展情况。
+    </view>
+</view>
+<view class="question1">
+    <view class="question1_title">
+        <image src="../../images/icon-bangzhu@2x.png" mode="widthFix" class="help_icon"></image>
+        <text class="font_W">平台有自己的电子合同和保障吗？</text>
+    </view>
+    <view class="question1_detail">
+        在客户发起支付时，会签署平台的电子合同以及相应的平台保障。
+    </view>
+</view>
+<view class="question1">
+    <view class="question1_title">
+        <image src="../../images/icon-bangzhu@2x.png" mode="widthFix" class="help_icon"></image>
+        <text class="font_W">提现的所有金额都会审核吗？</text>
+    </view>
+    <view class="question1_detail">
+        提现请求平台实时审核，保障客户资金安全。
+    </view>
+</view>
+<view class="question1">
+    <view class="question1_title">
+        <image src="../../images/icon-bangzhu@2x.png" mode="widthFix" class="help_icon"></image>
+        <text class="font_W">提现审核的时间有多久？</text>
+    </view>
+    <view class="question1_detail">
+        平台实时审核，在保障您资金安全的前提下，1个工作日之内完成。
+    </view>
+</view>
+
+<view class="warning">根据不同的情况采取相应的措施和制度，最终解释权归平台所有！</view>

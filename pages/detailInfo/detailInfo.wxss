@@ -1,0 +1,475 @@
+page {
+  background-color: #ededed;
+  color: #333;
+  font-size: 28rpx;
+}
+
+checkbox{
+  width:36rpx;
+}
+.checkbox{
+  margin-right: 10rpx;
+}
+checkbox .wx-checkbox-input {
+
+  border-radius: 3rpx;
+
+  height: 26rpx;
+
+  width: 26rpx;
+
+  margin-top: -4rpx;
+
+  
+
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  font-size: 14px;
+  color: #FF504C;
+}
+
+/* 
+
+checkbox .wx-checkbox-input {
+  line-height: 30rpx;
+  width: 28rpx;
+  height: 28rpx;
+  background-color: #fff;
+  border: 2rpx solid #f2f2f2;
+
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border: none;
+  background-image: linear-gradient(to right, #FFB43C, #FF504C);
+}
+
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+/* checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  border-radius: 50%;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 20rpx;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}  */
+
+.header-tip {
+  width: 750rpx;
+  height: 70rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #E64340;
+  text-align: center;
+  line-height: 70rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  display: none;
+}
+
+.header-tip-show {
+  display: block;
+}
+
+/*显示提示的时候  */
+.header-tip-bottom {
+  margin-top: 70rpx;
+}
+
+.item-title {
+  color: #999;
+  height: 82rpx;
+  width: 690rpx;
+  margin: 0 30rpx;
+  box-sizing: border-box;
+  line-height: 82rpx;
+  font-size: 24rpx
+}
+
+.item-detail {
+  width: 750rpx;
+  background-color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.item-info {
+  display: flex;
+  height: 88rpx;
+  width: 720rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-bottom: 1rpx solid #D9D9D9;
+  line-height: 88rpx;
+  margin: 0rpx 15rpx;
+}
+
+.item-info-left {
+  padding-left: 15rpx;
+  width: 160rpx;
+  height: 88rpx;
+  margin-right: 40rpx;
+  line-height: 88rpx;
+}
+
+.item-info-right {
+  padding-right: 15rpx;
+  width: 130rpx;
+  height: 88rpx;
+  text-align: right;
+}
+
+.item-info-input {
+  width: 360rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+/*所在商圈  */
+.picker {
+  height: 88rpx;
+  width: 470rpx;
+  display: inline-block;
+  /* color:#c19e7b; */
+}
+
+.item-area-img {
+  vertical-align: middle;
+  width: 16rpx;
+  height: 32rpx;
+}
+
+/*详细地址  */
+
+.item-info-adress {
+  height: 140rpx;
+  width: 750rpx;
+  padding: 30rpx 15rpx;
+}
+
+/*详细地址字段  */
+.item-info-left-label {
+  width: 145rpx;
+  padding-left: 15rpx;
+  margin-right: 50rpx;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.item-info-text {
+  width: 500rpx;
+  display: inline-block;
+  height: 140rpx;
+  vertical-align: top;
+  /* padding:3rpx; */
+}
+
+/*关键信息  */
+
+.item-info-radio {
+  height: 88rpx;
+  width: 330rpx;
+  margin-right: 50rpx;
+  padding-left: 15rpx;
+}
+
+.radio-text {
+  margin-right: 50rpx;
+}
+
+.item-redio {
+  margin-left: 56rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+
+.radio-group text {
+  display: inline-block;
+  width: 65rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.item-redioLone {
+  width: 65rpx;
+
+}
+
+.item-redio4 {
+  margin-left: 35rpx;
+  margin-right: 12rpx;
+  vertical-align: middle;
+}
+
+.item-info-area {
+  /* justify-content: space-between; */
+  width: 720rpx;
+  background-color: #fff;
+  /* border-bottom: 1rpx solid #D9D9D9;  */
+  padding: 20rpx 0rpx;
+  margin: 0 15rpx;
+  float: right;
+}
+
+.item-info-area .item-info-radio {
+  wdith: 500rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+/*是否有消防验收  */
+
+.item-info-fire {
+
+  /* justify-content: space-between; */
+  width: 720rpx;
+
+  background-color: #fff;
+  border-top: 1rpx solid #D9D9D9;
+  padding: 20rpx 0rpx;
+  margin: 0 16rpx;
+  float: right;
+}
+
+.item-info-fire .item-info-radio {
+  wdith: 500rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+/*发票提供  */
+.radio-group-invoice {
+  /* display: flex; */
+  /* display:block; */
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.radio-group-invoice .item-redio {
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+
+/*联系方式  */
+.contact-choose {
+  width: 750rpx;
+  height: 228rpx;
+  box-sizing: border-box;
+  padding: 30rpx;
+  background-color: #fff;
+}
+
+.contact-title {
+  margin-bottom: 15rpx;
+}
+
+/*与本人联系  */
+.contact-self {
+  width: 750rpx;
+  height: 192rpx;
+  background-color: #fff;
+}
+
+.contactSelf-phone {
+  display: flex;
+  height: 88rpx;
+  width: 720rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-top: 1rpx solid #D9D9D9;
+  border-bottom: 1rpx solid #D9D9D9;
+  line-height: 88rpx;
+  margin: 0rpx 15rpx;
+}
+
+.contactSelf-input {
+  width: 430rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+.contact-tip {
+  padding: 12rpx 30rpx;
+  font-size: 24rpx;
+  color: #D0021B;
+}
+
+/*与房东联系  */
+.contact-house {
+  width: 750rpx;
+  height: 245rpx;
+  background-color: #fff;
+}
+
+/*项目简介  */
+.store-item {
+  position: relative;
+  overflow: auto;
+}
+
+.item-textarea {
+  width: 750rpx;
+  height: 240rpx;
+  padding: 30rpx;
+  /* border-bottom: 1rpx solid #bebebe; */
+  background-color: #fff;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+/*上传图片  */
+.img-num {
+  flex-wrap: wrap;
+  display: flex;
+  padding: 0rpx 20rpx;
+  /* border-bottom:1rpx solid #bebebe */
+  margin: 0 auto;
+}
+
+.upload-img {
+  width: 224rpx;
+  height: 227rpx;
+  background-color: #fff;
+  margin: 5rpx;
+  position: relative;
+  border-radius: 10rpx;
+}
+
+.upload-img image {
+  width: 216rpx;
+  height: 160rpx;
+  /* border-radius:10rpx; */
+}
+
+.default-img {
+  width: 216rpx;
+  height: 160rpx;
+  box-sizing: border-box;
+  /* color:#999; */
+  text-align: center;
+  font-size: 100rpx;
+  margin: 0rpx 10rpx 10rpx;
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 6rpx -2rpx rgba(0, 0, 0, 0.30);
+  border-radius: 16rpx;
+
+}
+
+.default-img image {
+  width: 216rpx;
+  height: 160rpx;
+}
+
+.default-img .img-noImg {
+  width: 48rpx;
+  height: 48rpx;
+  /* margin-top:10rpx; */
+  vertical-align: middle;
+
+}
+
+.default-img .img-haveImg {
+  border: 0;
+  border-radius: 16rpx;
+}
+
+/*照片文字提示  */
+.img-alt {
+  color: #999;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+}
+
+/*保存提交  */
+.btn-area {
+  height: 200rpx;
+  width: 588rpx;
+  margin: 0 auto;
+  line-height: 200rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60rpx;
+}
+
+.btn-area button {
+  width: 260rpx;
+  height: 80rpx;
+  box-shadow: 0 2rpx 8rpx -2rpx rgba(0, 0, 0, 0.30);
+  border-radius: 0;
+  font-size: 28rpx;
+  -webkit-tap-highlight-color: 0;
+  margin: 0;
+  padding: 0;
+  margin-top: 40rpx;
+  color: #1a171c;
+  line-height: 80rpx;
+}
+
+button::after {
+  border: 0;
+}
+
+/*保存按钮  */
+.btn-area .btn-save {
+  color: #fff;
+  border: 1rpx solid #c19e7b;
+  background: #C19E7B;
+}
+
+.btn-area .submit-btn {
+  color: #c19e7b;
+  background-color: #1a171c;
+}
+
+.btn-area .disabled-btn {
+  color: #999;
+  background: #D9D9D9;
+
+}
+
+.mask {
+  width: 750rpx;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 20000;
+}
+
+
+.operate_btns .cancel_btn,
+.operate_btns .order_btn {
+  top:12rpx;
+}
+
+.publish_view{
+  text-align: center;
+  width: 100%;
+}
+
+.publish_btn{
+  margin-top: 20rpx; 
+  width:90%;
+  color:#FFFFFF;
+  background-image:linear-gradient(to right, #FFB43C, #FF504C);
+  box-shadow:0 2px 5px -2px #FF543A;
+
+height:84rpx;
+font-size:32rpx;
+text-align:center;
+line-height:84rpx;
+box-sizing:border-box;
+border-radius:15rpx;
+
+}
+

@@ -1,0 +1,40 @@
+.swiper_one .item {
+    height: 292rpx;
+}
+
+.swiper_one .item .caseBottom {
+
+    height: 60rpx;
+}
+
+.swiper_one .item .caseBottom_left {
+    height: 60rpx;
+    position: absolute;
+    right: 0;
+}
+
+.swiper_one .item .btns {
+    width: 140rpx;
+    height: 60rpx;
+    position: static;
+}
+
+.caseBottom .caseBottom_left .auto_btn {
+    width: 140rpx;
+    height: 54rpx;
+    padding: 2rpx;
+
+}
+
+.swiper_case {
+    position: relative;
+}
+
+.swiper_right_top text.tags {
+    position: absolute;
+    right: 0;
+}
+
+.swiper_right_top text.shsb {
+    width: 120rpx;
+}

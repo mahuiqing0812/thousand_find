@@ -1,0 +1,35 @@
+<view class="qual_exam_con">
+    <view class="arti_list">
+        <view class="arti_list_item" wx:for="{{qualityArr}}" wx:key="index" bindtap="skip_quaGoodsDetail" data-goodsid="{{item.Id}}">
+            <view class="arti_item_desc">
+                <view class="arti_item_pic">
+                    <image src="{{item.GoodsImagesList[0].ImageUrl}}"></image>
+                </view>
+                <view class="arti_item_detail">
+                    <view class="arti_item_title">{{item.GoodsTitle}}</view>
+                    <view class="arti_item_bewrite">{{item.GoodsDesc}}</view>
+                    <view class="arti_item_price">￥ <text class="price_num">{{item.Price}}</text> <text> 起</text></view>
+                </view>
+            </view>
+            <view class="arti_item_tags_box">
+                <view class="arti_itemTags_con">
+                    
+                    <view class="arti_item_tags" wx:if="{{item.CateList.length != 0}}">
+                        <view class="arti_itemTags_con">
+                            <view class="arti_itemTags_ico" wx:for="{{item.CateList}}" wx:for-item="items" wx:key="index">
+                                <image src="../../images/icon-biaoqian @2x.png" mode="widthFix"></image>
+                                <text>{{items.CategoryValue}}</text>
+                                <view class="arti_itemTags_shadow"></view>
+                            </view>
+                           
+                        </view>     
+                    </view>
+                </view>
+                
+            </view>
+        </view>
+        
+        
+        
+    </view>
+</view>

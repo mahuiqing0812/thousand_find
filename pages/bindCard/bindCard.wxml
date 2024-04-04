@@ -1,0 +1,7 @@
+<!--pages/myCard/myCard.wxml-->
+<view class="no_card">
+    <image src="../../images/icon-zanwuyinhangka@2x.png" mode="widthFix" class="no_card_icon"></image>
+    <text>暂未绑定银行卡</text>
+    <view class="addCard_btn" bindtap="skip_addCard">+ 绑定银行卡</view>`
+</view>
+    

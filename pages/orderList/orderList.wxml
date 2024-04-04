@@ -1,0 +1,270 @@
+<!--pages/case/case.wxml-->
+<view class='topTabSwiper'>
+  <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>全部</view>
+  <view class='tab_left'></view>
+  <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>未支付</view>
+  <view class='tab_left'></view>
+  <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}' data-current="2" bindtap='checkCurrent'>开发中</view>
+  <view class='tab_left'></view>
+  <view class='tab  {{currentData == 3 ? "tabBorer" : ""}}' data-current="3" bindtap='checkCurrent'>待验收</view>
+  <view class='tab_left'></view>
+  <view class='tab  {{currentData == 4 ? "tabBorer" : ""}}' data-current="4" bindtap='checkCurrent'>已完成</view>
+</view>
+<swiper current="{{currentData}}" class='swiper' style="height:{{windowH}}px" duration="300" bindchange="bindchange">
+  <swiper-item catchtouchmove="stopTouchMove">
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <view class='swiper_con'>
+        <block wx:if="{{orderListArr.length != 0}}">
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="go_orderDetail_seller" data-orstate="{{item.OrderStatus}}" data-orderno="{{item.OrderNo}}">
+              <view class='swiper_case'>
+
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="orderTitle font_W">{{item.ProjectName}}</text>
+                    <text wx:if="{{item.OrderStatus == 1}}" class="tags">未支付</text>
+                    <text wx:elif="{{item.OrderStatus == 2}}" class="tags">开发中</text>
+                    <text wx:elif="{{item.OrderStatus == 3}}" class="tags">待验收</text>
+                    <text wx:elif="{{item.OrderStatus == 4}}" class="tags">已完成</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.OrderRemark}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>合计：¥ <text>{{item.OrderPrice}}</text> </view>
+                <view class='caseBottom_left'>
+
+                  <view class="btns" wx:if="{{item.OrderStatus == 1}}">
+                    <view class="auto_btn" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+                  </view>
+                  <view class="btns" wx:elif="{{item.OrderStatus == 2}}">
+
+                    <view class="auto_btn btnsL" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+                    <view class="auto_btn" catchtap="submit_check" data-orderno="{{item.OrderNo}}">
+                      <view class="autoBtn_box">提交验收</view>
+                    </view>
+
+                  </view>
+                  <view class="btns" wx:elif="{{item.OrderStatus == 3}}">
+
+                    <view class="auto_btn" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+
+                  </view>
+                  <view class="btns" wx:else>
+
+                    <view class="auto_btn" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="noOrder">
+            <view class="noOrder_imgB">
+              <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+            </view>
+            <text class="text1">您还没有项目</text>
+            <text class="text2">赶快联系客服发掘您的商机吧</text>
+            <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+          </view>
+        </block>
+
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item catchtouchmove="stopTouchMove">
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <block wx:if="{{orderListArr.length != 0}}">
+        <view class='swiper_con'>
+
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="go_orderDetail_seller" data-orstate="1" data-orderno="{{item.OrderNo}}">
+              <view class='swiper_case'>
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="orderTitle font_W">{{item.ProjectName}}</text>
+                    <text class="tags">待支付</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.OrderRemark}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>合计：¥ <text>{{item.OrderPrice}}</text> </view>
+                <view class='caseBottom_left'>
+                  <view class="btns">
+
+                    <view class="auto_btn" data-orderno="{{item.OrderNo}}">
+                      <view class="autoBtn_box">联系客服</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noOrder">
+          <view class="noOrder_imgB">
+
+            <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+          </view>
+          <text class="text1">您还没有项目</text>
+          <text class="text2">赶快联系客服发掘您的商机吧</text>
+          <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item catchtouchmove="stopTouchMove">
+
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <block wx:if="{{orderListArr.length != 0}}">
+        <view class='swiper_con'>
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="go_orderDetail_seller" data-orstate="2" data-orderno="{{item.OrderNo}}">
+              <view class='swiper_case'>
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="orderTitle font_W">{{item.ProjectName}}</text>
+                    <text class="tags">开发中</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.OrderRemark}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>合计：¥ <text>{{item.OrderPrice}}</text> </view>
+                <view class='caseBottom_left'>
+                  <view class="btns">
+
+                    <view class="auto_btn btnsL" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+                    <view class="auto_btn" catchtap="submityanshou" data-orderno="{{item.OrderNo}}">
+                      <view class="autoBtn_box">提交验收</view>
+                    </view>
+
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noOrder">
+          <view class="noOrder_imgB">
+
+            <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+          </view>
+          <text class="text1">您还没有项目</text>
+          <text class="text2">赶快联系客服发掘您的商机吧</text>
+          <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item catchtouchmove="stopTouchMove">
+
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <block wx:if="{{orderListArr.length != 0}}">
+        <view class='swiper_con'>
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="go_orderDetail_seller" data-orstate="3" data-orderno="{{item.OrderNo}}">
+              <view class='swiper_case'>
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="orderTitle font_W">{{item.ProjectName}}</text>
+                    <text class="tags">待验收</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.OrderRemark}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>合计：¥ <text>{{item.OrderPrice}}</text> </view>
+                <view class='caseBottom_left'>
+                  <view class="btns">
+                    <view class="auto_btn" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">联系客服</button>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noOrder">
+          <view class="noOrder_imgB">
+
+            <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+          </view>
+          <text class="text1">您还没有项目</text>
+          <text class="text2">赶快联系客服发掘您的商机吧</text>
+          <!-- <view class="auto_btn" catchtap="conCustom"> -->
+          <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+          <!-- </view> -->
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item catchtouchmove="stopTouchMove">
+    <scroll-view style="height: 100%" scroll-y scroll-with-animation bindscrolltolower="reactBottom">
+      <block wx:if="{{orderListArr.length != 0}}">
+        <view class='swiper_con'>
+          <view class='swiper_one' wx:for="{{orderListArr}}" wx:key="index">
+            <view bindtap="go_orderDetail_seller" data-orstate="4" data-orderno="{{item.OrderNo}}">
+              <view class='swiper_case'>
+                <view class='swiper_right'>
+                  <view class='swiper_right_top'>
+                    <text class="orderTitle font_W">{{item.ProjectName}}</text>
+                    <text class="tags">已完成</text>
+                  </view>
+                  <view class='swiper_right_bottom'>{{item.OrderRemark}}</view>
+                </view>
+              </view>
+              <view class='caseBottom'>
+                <view class='caseBottom_right'>合计：¥ <text>{{item.OrderPrice}}</text> </view>
+                <view class='caseBottom_left'>
+                  <view class="btns">
+                    <view class="auto_btn" catchtap="conCustom">
+                      <button class="autoBtn_box" open-type="contact">申请售后</button>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noOrder">
+          <view class="noOrder_imgB">
+
+            <image src="../../images/noOrder@2x.png" mode="widthFix"></image>
+          </view>
+          <text class="text1">您还没有项目</text>
+          <text class="text2">赶快联系客服发掘您的商机吧</text>
+          <!-- <view class="auto_btn" catchtap="conCustom"> -->
+          <button class="autoBtn_box noArrBtn" open-type="contact">联系客服</button>
+          <!-- </view> -->
+        </view>
+      </block>
+    </scroll-view>
+  </swiper-item>
+</swiper>

@@ -1,0 +1,127 @@
+<view class="component_my_wrapper">
+  <!--index.wxml-->
+<view class="banner">
+  <swiper
+  interval="2000"
+  duration="500"
+  circular="true" 
+>
+  <block wx:for="{{imgUrls}}" wx:key="index">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" mode="widthFix"/>
+    </swiper-item>
+  </block> 
+</swiper>
+</view>
+<view class="content_box">
+  <view class="notice" bindtap="skip_niticeDetail">
+    <view class="notice_icon no_ico1"><image src="../../../images/icon-laba@2x.png" mode="widthFix"></image></view>
+    <view class="notice_txt">
+      <view class="marquee_box">
+        <view class="marquee_text" style="{{orientation}}:{{marqueeDistance}}px;font-size: {{size}}px;">
+          {{noticeTxt}}
+        </view> 
+      </view>
+    </view>
+  
+    <view class="notice_icon no_ico2"><image src="../../../images/icon-xiangyou@2x.png" mode="widthFix"></image></view>
+  </view>
+
+<!-- 分类导航开始 -->
+<view class="classify">
+    <view class="fun_cla classify_lis">
+        <view class="fun_list">
+            <view class="fun_list_item" bindtap="skip_itList" data-currData='1'>
+                <image src="../../../images/icon-dianshang@2x.png"></image>
+                <text>电商</text>
+            </view>
+            <view class="fun_list_item" bindtap="skip_itList" data-currData='2'>
+              <image src="../../../images/icon-qipai@2x.png"></image>
+              <text>棋牌</text>
+            </view>
+            <view class="fun_list_item" bindtap="skip_itList" data-currData='3'>
+                <image src="../../../images/icon-shejiao@2x.png"></image>
+                <text>社交</text>
+            </view>
+            <view class="fun_list_item" bindtap="skip_itList" data-currData='4'>
+              <image src="../../../images/icon-shouyou@2x.png"></image>
+              <text>手游</text>
+            </view>
+            <view class="fun_list_item" bindtap="skip_itList" data-currData='5'>
+                <image src="../../../images/icon-xinwen@2x.png"></image>
+                <text>新闻</text>
+            </view>
+            <view class="fun_list_item" bindtap="skip_itList" data-currData='6'>
+                <image src="../../../images/icon-qita@2x.png"></image>
+                <text>其他</text>
+            </view>
+        </view>
+    </view>
+    <!-- 优质项目案例导航 -->
+    <view class="quality_item" bindtap="skip_qualityItem">
+      <image src="../../../images/quality_item.png" mode="widthFix"></image>
+    </view>
+
+    <!-- 终端分类导航 -->
+    <view class="terminal_cla classify_lis">
+        <view class="fun_list">
+            <view class="fun_list_item" bindtap="skip_itList_ter" data-terminalCurId="1">
+                <view class="term_pic xcx"></view>
+                <text class="term_title">小程序</text>
+                <view class="term_line"></view>
+            </view>
+            <view class="fun_list_item" bindtap="skip_itList_ter" data-terminalCurId="2">
+                    <view class="term_pic APP"></view>
+                <text class="term_title">APP</text>
+                <view class="term_line"></view>
+            </view>
+            <view class="fun_list_item" bindtap="skip_itList_ter" data-terminalCurId="3">
+                    <view class="term_pic H5"></view>
+                <text class="term_title">H5</text>
+                <view class="term_line"></view>
+            </view>
+            <view class="fun_list_item" bindtap="skip_itList_ter" data-terminalCurId="4">
+                    <view class="term_pic PC"></view>
+                <text class="term_title">PC</text>
+                <view class="term_line"></view>
+            </view>
+        </view>
+    </view>
+    
+</view>
+
+<view class="subnav_list">
+
+  <view class="subnav_item" bindtap="skip_qualityItem_ing">
+    <view class="subnavItem_icon">
+      <image src="../../../images/icon-jinxingzhongxiangmu@2x.png" mode="widthFix"></image>
+    </view>
+    <view class="subnavItem_detail">
+      <view class="detail_title">进行中的项目</view>
+    </view>
+    <view class="subnavItem_bgIcon">
+      <image src="../../../images/jinxingzhong-beijing@2x.png" mode="widthFix"></image>
+    </view>
+  </view>
+  <view class="subnav_item" bindtap="skip_qualityItem_fini">
+    <view class="subnavItem_icon">
+      <image src="../../../images/icon-yiwanchengxiangmu@2x.png" mode="widthFix"></image>
+    </view>
+    <view class="subnavItem_detail">
+      <view class="detail_title">已完成的项目</view>
+    </view>
+    <view class="subnavItem_bgIcon">
+      <image src="../../../images/yiwancheng-beijing@2x.png" mode="widthFix"></image>
+    </view>
+  </view>
+</view>
+</view>
+<view wx:if="{{!isLogin}}">
+  <view class="mask" catchtouchmove="return"></view>
+  <view class="authorize_bg">
+    
+    <button class="authorize_btn" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">授权登录</button>
+  </view>
+</view>
+
+</view>

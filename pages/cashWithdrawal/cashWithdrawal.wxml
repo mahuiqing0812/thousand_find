@@ -1,0 +1,39 @@
+<view class="cash_top">
+  <image src='../../images/icon-tixianqianbao@2x.png'></image>
+  <view class='cash_top_one'>
+    <text>￥{{moneyObj._availablebalance}}</text>
+    <text>账户余额</text>
+  </view>
+  <view class='cash_top_two'>
+    <view class='cash_top_left'>
+      <text>可提现金额</text>
+      <text>￥{{moneyObj._availablebalance}}</text>
+    </view>
+    <view class='cash_top_middle'></view>
+    <view class='cash_top_right'>
+      <text>冻结金额</text>
+      <text>￥{{moneyObj._frozenbalance}}</text>
+    </view>
+  </view>
+</view>
+<view class='explain' bindtap="skip_helpCenter">
+  <image src='../../images/icon-shuoming@2x.png'></image>
+  <text>资金冻结说明</text>
+</view>
+<view class='cash_middle'>
+  <text class="font_W">提现到微信钱包</text>
+  <view class='cash_middle_withdrawal'>
+    <text class="fl">¥</text>
+    <input class="fl" placeholder="请输入提现金额" value="{{amount}}" type="number" bindinput="getInput" autofocus="autofocus"
+      placeholder-class="cash_placeholder" />
+
+    <text class="fr" bindtap="allCash">全部提现</text>
+  </view>
+  <view class='cash_middle_con'>
+    <image src='../../images/icon-tishi_two@2x.png'></image>
+    <text>私下交易方式谨防骗局，平台交易更有保障</text>
+  </view>
+</view>
+<view class='cash_bottom'>
+  <button bindtap="promptCash">立即提现</button>
+</view>

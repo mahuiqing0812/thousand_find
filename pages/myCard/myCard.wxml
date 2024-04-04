@@ -1,0 +1,35 @@
+<!--pages/myCard/myCard.wxml-->
+<view wx:if="{{mycard}}">
+    <view class="card_bg">
+        <view class="card_msg">
+            <view class="fl">{{cardData.OpenBank}}</view>
+            <view class="fr" bindtap="bind_select">...</view>
+        </view>
+        <view class="card_num">{{cardData.CardNo}}</view>
+        <view class="card_name">{{cardData.OpenBankUserName}}</view>
+
+    </view>
+
+    <view class="bind_select" wx:if="{{bindSelect}}">
+        <view class="remove_bind" bindtap="removeBind">解除绑定</view>
+        <view bindtap="changeBind">换绑银行卡</view>
+    </view>
+
+    <view class="remove_bind_win" wx:if="{{confirm_win}}">
+        <view class="removeBind_winHd">
+            解除绑定后将无法提现，是否继续？
+        </view>
+        <view class="removeBind_winBd">
+            <view class="no_remove" bindtap="no_cancel">我再想想</view>
+            <view bindtap="confirm_remove">确认解绑</view>
+        </view>
+    </view>
+
+    <view class="mask" wx:if="{{confirm_win}}" catchtouchmove="return"></view>
+</view>
+
+<view class="no_card" wx:else>
+    <image src="../../images/icon-zanwuyinhangka@2x.png" mode="widthFix" class="no_card_icon"></image>
+    <text>暂未绑定银行卡</text>
+    <view class="addCard_btn" bindtap="skip_addCard">+ 绑定银行卡</view>`
+</view>

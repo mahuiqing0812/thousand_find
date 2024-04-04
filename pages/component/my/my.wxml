@@ -1,0 +1,207 @@
+<view class="component_my_wrapper">
+    <view class="user_msg">
+        <view class="user_msg_con">
+            <view class="user_login">
+                <view class="user_info">
+
+                    <image src="{{userInfo.headimgurl}}" mode="widthFix" class="fl avatar"></image>
+                    <view class="nickname fl">
+                        <!-- <text>用户登录</text> -->
+                        <text class="font_W">ID：{{userId}}</text>
+                        <text class="nike_name">{{userInfo.nikeName}}</text>
+
+                        <view class="user_bindphoneNumber">
+                            <image src="../../../images/icon-shouji@2x.png" mode="widthFix" class="phone_ico fl">
+                            </image>
+                            <button wx:if="{{!phoneNumer}}" class="binding fl" open-type="getPhoneNumber"
+                                bindgetphonenumber="bindGetUserPhone">绑定手机号</button>
+                            <text wx:else class="phoneNumber">{{phoneNumer}}</text>
+                        </view>
+                    </view>
+
+                </view>
+
+            </view>
+            <view class="sign_in">
+                <view class="signIn_label" bindtap="sinIn">
+                    <image src="../../../images/icon-qiandao@2x.png" mode="widthFix" class="fl"></image>
+                    <view class="signIn_labelTxt fl">{{sinInTxt}}</view>
+                </view>
+                <view class="signIn_sup">积分：{{userInfo.credit}}</view>
+            </view>
+        </view>
+
+    </view>
+    <!-- 申请成为代理商开始 -->
+    <!-- <view class="user_integralLeval">
+        <view>申请成为代理商</view>
+    </view> -->
+
+    <view class="role">
+        <view class="buy {{role == 1? 'current': ''}}" bindtap="switch_role" data-roles="1"><text>我是买家</text></view>
+        <view class="seller {{role == 2? 'current': ''}}" bindtap="switch_role" data-roles="2"><text>我是卖家</text></view>
+    </view>
+
+    <!-- 买家用户我的订单开始 -->
+    <view class="my_order" wx:if="{{role == 1}}">
+        <view class="myOrder_title">
+            <view class="myOrder_tit fl font_W">我的订单</view>
+            <view class="myOrder_lookAll fr" bindtap='goGame' data-currentdata="0">查看全部 ></view>
+        </view>
+        <view class="myOrder_detail">
+            <view class="all_orderKinds">
+                <view class="all_orderKinds_item" bindtap='goGame' data-currentdata="1">
+                    <image src="../../../images/icon-daizhifu@2x.png" mode="widthFix"></image>
+                    <view>待支付</view>
+                </view>
+                <view class="all_orderKinds_item" bindtap='goGame' data-currentdata="2">
+                    <image src="../../../images/icon-daifahuo@2x.png" mode="widthFix"></image>
+                    <view>开发中</view>
+                </view>
+                <view class="all_orderKinds_item" bindtap='goGame' data-currentdata="3">
+                    <image src="../../../images/icon-daishouhuo@2x.png" mode="widthFix"></image>
+                    <view>待验收</view>
+                </view>
+                <view class="all_orderKinds_item" bindtap='goGame' data-currentdata="4">
+                    <image src="../../../images/icon-yiwancheng@2x.png" mode="widthFix"></image>
+                    <view>已完成</view>
+                </view>
+            </view>
+            <view class="connection_custService">
+                <image src="../../../images/icon-lianxikefu@2x.png" mode="widthFix"></image>
+                <view>联系客服</view>
+                <view>免费获取方案报价</view>
+                <button class="autoBtn_box" open-type="contact"></button>
+            </view>
+        </view>
+    </view>
+    <block wx:else>
+        <!-- 发布按钮 -->
+        <view class="publish_btn" bindtap="skip_publishItem">发布项目</view>
+
+        <!-- 卖家用户我的项目开始 -->
+        <view class="my_item">
+            <view class="myOrder_title my_item_title">
+                <view class="myOrder_tit fl font_W">我的项目</view>
+                <view class="myOrder_lookAll fr" data-currentdata="-1" bindtap="check_itemlist">查看全部 ></view>
+            </view>
+            <view class="my_item_main">
+                <view class="my_item_main_i" bindtap="check_itemlist" data-currentdata="2">
+                    <image src="../../../images/icon-daizhifu@2x.png" mode="widthFix"></image>
+                    <view>已关闭</view>
+                </view>
+                <view class="my_item_main_i" bindtap="check_itemlist" data-currentdata="1">
+                    <image src="../../../images/icon-daifahuo@2x.png" mode="widthFix"></image>
+                    <view>审核中</view>
+                </view>
+                <view class="my_item_main_i" bindtap="check_itemlist" data-currentdata="3">
+                    <image src="../../../images/icon-daishouhuo@2x.png" mode="widthFix"></image>
+                    <view>出售中</view>
+                </view>
+                <view class="my_item_main_i" bindtap="check_itemlist" data-currentdata="4">
+                    <image src="../../../images/icon-yiwancheng@2x.png" mode="widthFix"></image>
+                    <view>已出售</view>
+                </view>
+
+            </view>
+        </view>
+
+        <!-- 卖家用户我的订单开始 -->
+        <view class="my_item">
+            <view class="myOrder_title my_item_title">
+                <view class="myOrder_tit fl font_W">我的订单</view>
+                <view class="myOrder_lookAll fr" bindtap="check_orderListS" data-currentdata="0">查看全部 ></view>
+            </view>
+            <view class="my_item_main">
+                <view class="my_item_main_i" bindtap="check_orderListS" data-currentdata="1">
+                    <image src="../../../images/icon-daizhifu@2x.png" mode="widthFix"></image>
+                    <view>待支付</view>
+                </view>
+                <view class="my_item_main_i" bindtap="check_orderListS" data-currentdata="2">
+                    <image src="../../../images/icon-daifahuo@2x.png" mode="widthFix"></image>
+                    <view>开发中</view>
+                </view>
+                <view class="my_item_main_i" bindtap="check_orderListS" data-currentdata="3">
+                    <image src="../../../images/icon-daishouhuo@2x.png" mode="widthFix"></image>
+                    <view>待验收</view>
+                </view>
+                <view class="my_item_main_i" bindtap="check_orderListS" data-currentdata="4">
+                    <image src="../../../images/icon-yiwancheng@2x.png" mode="widthFix"></image>
+                    <view>已完成</view>
+                </view>
+
+            </view>
+        </view>
+    </block>
+
+    <!-- 我的钱包开始 -->
+    <view class="my_wallet">
+        <view class="myOrder_title myWallet_title">
+            <view class="myOrder_tit fl font_W">我的钱包</view>
+            <view class="myOrder_lookAll fr" bindtap="check_wallet">查看更多 ></view>
+        </view>
+        <view class="myWallet_detail">
+            <view class="wallet_amount">
+                <view class="wallet_amountNum">
+                    <text wx:if="{{eysStatus}}">￥{{walletNum}}</text>
+                    <text wx:else>****</text>
+                </view>
+                <view class="wallet_amountTxt">
+                    <text>账户余额</text>
+                    <image wx:if="{{eysStatus}}" bindtap="toggleeye" class="little_eye"
+                        src="../../../images/icon-zhengyan@2x.png" mode="widthFix"></image>
+                    <image wx:else bindtap="toggleeye" class="little_eye" src="../../../images/icon-biyan@2x.png"
+                        mode="widthFix"></image>
+                </view>
+            </view>
+            <view class="wallet_tip"></view>
+            <view class="wallet_btns">
+                <view class="deposit" bindtap="showDialogBtn">充值</view>
+                <view class="withdraw" bindtap='draw'>提现</view>
+            </view>
+        </view>
+    </view>
+    <!-- 帮助中心和关于我们开始 -->
+    <view class="help_about">
+        <view class="help_about_i" bindtap="skip_helpCenter">
+            <image src="../../../images/icon-bangzhuzhongxin@2x.png" mode="widthFix" class="helpAbout_ico"></image>
+            <view>帮助中心</view>
+            <image src="../../../images/icon-xiangyou-hui@2x.png" mode="widthFix" class="right_arrow"></image>
+        </view>
+        <view class="help_about_i" bindtap="skip_aboutMe">
+            <image src="../../../images/icon-guanyuwomen@2x.png" mode="widthFix" class="helpAbout_ico"></image>
+            <view>关于我们</view>
+            <image src="../../../images/icon-xiangyou-hui@2x.png" mode="widthFix" class="right_arrow"></image>
+        </view>
+        <view class="help_about_i" bindtap="skip_feedBack">
+            <image src="../../../images/icon-yijianfankui.png" mode="widthFix" class="helpAbout_ico"></image>
+            <view>用户反馈</view>
+            <image src="../../../images/icon-xiangyou-hui@2x.png" mode="widthFix" class="right_arrow"></image>
+        </view>
+        <view class="help_about_i" bindtap="skip_viewItem">
+            <image src="../../../images/icon-goodslist.png" mode="widthFix" class="helpAbout_ico"></image>
+            <view>商品列表</view>
+            <image src="../../../images/icon-xiangyou-hui@2x.png" mode="widthFix" class="right_arrow"></image>
+        </view>
+    </view>
+    <view class="wall_help_about"></view>
+</view>
+
+<!-- 确认充值的弹框 -->
+
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="return" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">充值</view>
+    <view class="modal-content">
+        <view class="modal-input">
+
+            <input placeholder-class="input-holder" type="digit" maxlength="5" bindinput="inputChange" class="input"
+                placeholder="请输入充值金额"></input>
+
+        </view>
+    </view>
+    <view class="modal-footer">
+        <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+        <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定充值</view>
+    </view>
+</view>

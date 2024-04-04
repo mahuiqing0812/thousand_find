@@ -1,0 +1,104 @@
+<!--pages/itemDetSeller/itemDetSeller.wxml-->
+
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class="order_states">
+    <view class="states_is_daizhifu" wx:if="{{itemMsg.Status == '1'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-daizhifu-orderstates@2x.png" mode="widthFix"></image>
+            <text>项目审核中</text>
+        </view>
+
+        <view class="remain_time">请耐心等待审核</view>
+    </view>
+    <view class="states_is_daifahuo" wx:elif="{{itemMsg.Status == '2'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-daifahuo-orderstates@2x.png" mode="widthFix"></image>
+            <text>审核失败</text>
+        </view>
+        <view class="hand_back">押金{{itemMsg.DepositMoney}}元已退至钱包</view>
+        <view class="remain_time">失败原因：{{itemMsg.CheckDesc}}</view>
+    </view>
+    <view class="states_is_daizhifu" wx:elif="{{itemMsg.Status == '3'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-daifahuo-orderstates@2x.png" mode="widthFix"></image>
+            <text>项目出售中</text>
+        </view>
+    </view>
+    <view class="states_is_daifahuo states_is_yiwancheng" wx:elif="{{itemMsg.Status == '4'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-wancheng-orderstates@2x.png" mode="widthFix"></image>
+            <text>项目已出售</text>
+        </view>
+        <view class="remain_time">如有疑问请联系客服的文案</view>
+    </view>
+    <view class="states_is_daifahuo states_is_yiwancheng" wx:elif="{{itemMsg.Status == '5'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-wancheng-orderstates@2x.png" mode="widthFix"></image>
+            <text>项目已下架</text>
+        </view>
+        <view class="remain_time">如有疑问请联系客服的文案</view>
+    </view>
+    <view class="states_is_daifahuo states_is_yiwancheng" wx:elif="{{itemMsg.Status == '6'}}">
+        <view class="order_statesTxt">
+            <image src="../../images/icon-wancheng-orderstates@2x.png" mode="widthFix"></image>
+            <text>项目已关闭</text>
+        </view>
+        <view class="remain_time">如有疑问请联系客服的文案</view>
+    </view>
+
+</view>
+
+<!-- 商品信息开始 -->
+<view class="">
+    <view class="contactWay_title font_W">项目信息</view>
+    <view class="order_detail">
+        <view><text>项目名称：</text> <text>{{itemMsg.ProjectName}}</text></view>
+        <view><text>描述：</text> {{itemMsg.ProjectDesc}}</view>
+        <view><text>项目类型：</text> <text>{{itemMsg.FunctionSortName}}</text></view>
+        <view><text>支持终端：</text> <text>{{terminalStr}} </text></view>
+        <view><text>项目价格：</text> <text>{{itemMsg.Price}}</text></view>
+        <view><text>缴纳押金：</text> <text>{{itemMsg.DepositMoney}}</text></view>
+        <view><text>项目编号：</text> <text>{{itemMsg.ProjectCode}}</text></view>
+        <view><text>创建时间：</text> <text>{{itemMsg.CreatorTime}}</text></view>
+        <view class="item_fenqi"><text>项目分期：</text> <text>{{itemMsg.TotalTerm}}期</text></view>
+
+        <view class="instalment_msg">
+            <view class="task_item" wx:for="{{itemMsg.ProjectTermList}}" wx:key="index">
+                <view class="times_and_price">
+                    <view class="time_slice"><text>●</text>第{{item.Term}}期</view>
+                    <view class="price">{{item.PricePercentage}}%</view>
+                    <view class="days">{{item.PhaseDays}}天</view>
+                </view>
+                <view class="instalment_task">
+                    阶段任务：{{item.PhaseTask}}
+                </view>
+            </view>
+
+        </view>
+
+    </view>
+</view>
+
+<view class="btns">
+
+    <view class="operate_btns special_btn" wx:if="{{itemMsg.Status == '3'}}" bindtap="itemUnder">
+        <view class="order_btn">项目下架</view>
+    </view>
+    <view class="operate_btns special_btn" wx:else>
+        <view class="cancel_btn">
+            <view class="cancel_btnBox"><button open-type="contact">联系客服</button></view>
+        </view>
+    </view>
+
+
+</view>
+<view class="mask" wx:if="{{itemUnderShow}}" catchtouchmove="return"></view>
+<!-- <view class="mask" catchtouchmove="return"></view> -->
+<view class="item_under" catchtouchmove="return" wx:if="{{itemUnderShow}}">
+    <view class="item_under_desc">下架描述</view>
+    <view class="remark_enter">
+        <textarea name="" id="" cols="10" rows="2" bindinput="itemUnderReason" placeholder="请输入下架原因"
+            placeholder-class="remark_place"></textarea>
+    </view>
+    <view class="confirmPay font_W" bindtap="confirmUnder">确认下架</view>
+</view>

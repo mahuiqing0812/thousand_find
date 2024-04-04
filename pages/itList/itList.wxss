@@ -1,0 +1,203 @@
+/* pages/itList/itList.wxss */
+page {
+    background-color: #fff;
+}
+
+.it_softWare_list {
+    display: flex;
+    padding-left: 160rpx;
+}
+
+.it_leftNavBar {
+    width: 160rpx;
+    font-size: 24rpx;
+    color: #333;
+    position: fixed;
+    left: 0;
+}
+
+.it_leftNavBar image {
+    width: 68rpx;
+    position: absolute;
+    top: 26rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.it_leftNavBar .leftNav_item {
+    height: 160rpx;
+    padding-top: 102rpx;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #F9F9F9;
+    text-align: center;
+}
+
+.it_leftNavBar .letNav_cur {
+    background-color: #fff;
+
+}
+
+.it_leftNavBar .letNav_cur::before {
+    content: "";
+    width: 8rpx;
+    height: 60rpx;
+    border-radius: 0 8rpx 8rpx 0;
+    background-image: linear-gradient(-225deg, #FF504C 0%, #FFB43C 100%);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 左边导航结束 */
+.it_rightContent {
+    background-color: #fff;
+}
+
+.it_rightContent .topBar_terminal {
+    width: 590rpx;
+    display: flex;
+    box-shadow: inset 0 -2rpx 0 0 #F2F2F2;
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 28rpx;
+    color: #999;
+    position: fixed;
+    background-color: #fff;
+    z-index: 999;
+}
+
+.it_rightContent .topBar_terminal view {
+    width: 147rpx;
+    text-align: center;
+}
+
+.it_rightContent .topBar_terminal view.topBar_cur {
+    color: #ee3344;
+}
+
+/* 顶部筛选导航结束 */
+/* 右边内容列表开始 */
+.it_itemList {
+    width: 540rpx;
+    margin-top: 40rpx;
+    margin-left: 20rpx;
+    padding-top: 88rpx;
+    box-sizing: border-box;
+}
+
+.arti_list_item {
+    width: 540rpx;
+    padding: 30rpx 0rpx 0 0;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0 2rpx 10rpx 2rpx rgba(217, 217, 217, 0.50);
+    border-radius: 8rpx;
+    margin-bottom: 30rpx;
+}
+
+.arti_list_item .arti_item_desc {
+    display: flex;
+    padding: 0 20rpx 30rpx 20rpx;
+}
+
+.arti_list_item .arti_item_desc .arti_item_pic image {
+    width: 180rpx;
+    border-radius: 8rpx;
+}
+
+.arti_list_item .arti_item_detail {
+    margin-left: 20rpx;
+}
+
+.arti_list_item .arti_item_title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 32rpx;
+    height: 46rpx;
+    line-height: 46rpx;
+    width: 310rpx;
+}
+
+.arti_list_item .arti_item_bewrite {
+    color: #999;
+    font-size: 24rpx;
+    margin: 8rpx 0;
+    line-height: 34rpx;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.arti_list_item .arti_item_price {
+    color: #EE3344;
+    font-size: 32rpx;
+    /* margin-top: 14rpx; */
+    height: 50rpx;
+    line-height: 50rpx;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.arti_item_price text {
+    font-size: 24rpx;
+    margin-left: 4rpx;
+}
+
+.arti_item_price .price_num {
+    /* width: 200rpx; */
+    font-size: 36rpx;
+    margin: 0;
+    display: block;
+}
+
+.arti_list_item image {
+    width: 260rpx;
+    height: 180rpx;
+}
+
+.arti_item_tags {
+    border-top: 2rpx dashed #F2F2F2;
+    color: #F14F5E;
+    padding-bottom: 30rpx;
+}
+
+.arti_item_tags .arti_itemTags_con {
+    display: flex;
+    padding: 30rpx 30rpx 0 30rpx;
+}
+
+.arti_item_tags .arti_itemTags_ico {
+    margin-right: 30rpx;
+    padding-left: 24rpx;
+    position: relative;
+    font-size: 20rpx;
+}
+
+.arti_item_tags .arti_itemTags_ico image {
+    width: 24rpx;
+    position: absolute;
+    left: 0;
+    top: 4rpx;
+}
+
+.arti_item_tags .arti_itemTags_ico text {
+    margin-left: 10rpx;
+}
+
+.arti_item_tags .arti_itemTags_ico .arti_itemTags_shadow {
+    width: calc(100% + 10rpx);
+    height: 10rpx;
+    border-radius: 10rpx;
+    opacity: 0.2;
+    margin-top: -10rpx;
+    background-image: linear-gradient(-225deg, #FF504C 0%, #FFB43C 100%);
+}
